@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Dancing+Script:wght@700&display=swap');
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #666464a4;
+    color: white;
+    text-align: center;
+}
