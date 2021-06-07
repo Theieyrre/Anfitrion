@@ -11,6 +11,14 @@
     <title>Anfitrión - Online Restoran Rezervasyon</title>
 </head>
 <body>
+<?php 
+    if(isset($_SESSION["username"])){
+        if($_SESSION["is_host"]){
+            header("Location: /host/");
+        }
+        header("Location: /client/");
+    }
+?>
     <div class="container">
         <a class="navbar-brand" href="index.php">
             <img src="images/Anfitrion-hover.png" alt="" height="100px">

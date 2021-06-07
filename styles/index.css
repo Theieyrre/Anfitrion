@@ -19,21 +19,21 @@ body {
 
 button.page-button {
     border-radius: 2em;
-    border-color: #ffd013;
+    border-color: #ffac13;
     border-width: 3px;
-    background-color: #666464a4;
+    background-color: #666464d8;
     color: rgb(192, 192, 192);
     margin: 0 5em 0 5em;
-    -webkit-box-shadow: 0px 0px 82px -10px rgb(182, 149, 17);
-    -moz-box-shadow: 0px 0px 82px -10px rgb(182, 149, 17);
-    box-shadow: 0px 0px 82px -10px rgb(182, 149, 17);
+    -webkit-box-shadow: 0px 0px 82px -10px rgb(170, 153, 84);
+    -moz-box-shadow: 0px 0px 82px -10px rgb(170, 153, 84);
+    box-shadow: 0px 0px 82px -10px rgb(170, 153, 84);
     padding: 2em;
 }
 
 button.page-button:hover {
-    background-color: #3838387c;
-    -webkit-box-shadow: 10px 10px 22px -15px #ffd013c4;
-    -moz-box-shadow: 10px 10px 22px -15px #ffd013c4;
-    box-shadow: 10px 10px 22px -15px #ffd013c4;
+    background-color: #38383891;
+    -webkit-box-shadow: 10px 10px 22px -15px rgb(170, 153, 84);
+    -moz-box-shadow: 10px 10px 22px -15px rgb(170, 153, 84);
+    box-shadow: 10px 10px 22px -15px rgb(170, 153, 84);
 }
 
