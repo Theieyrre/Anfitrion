@@ -20,29 +20,26 @@
 ?>
 <div class="container">
     <div class="row justify-content-md-center">
-        <div class="col-md-3">
+        <div class="col-md-auto">
             <form method="post" autocomplete="off" >
                 <h1 class="form--header">
-                    Hemen Kaydolun!
+                    Restoranınızı oluşturun !
                 </h1>
                 <h2 class="form--header">
-                    Bilgileriniz doldurun ve restoranınızı müşterilere açın!
+                    !!! EKSİK !!!
                 </h2>
-                <input type="text" name="firstname" placeholder="Adınız" maxlength="20" required><br>
-                <input type="text" name="lastname" placeholder="Soyadınız" maxlength="20" required><br>
-                <input type="text" name="email" placeholder="Emailiniz" maxlength="30" required><br>
-                <input type="tel" name="phonenumber" placeholder="Telefon Numaranız" pattern="[0-9]{4}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required><br>
+                <input type="text" name="username" placeholder="Email/Telefon" maxlength="30" required><br>
                 <input type="password" name="password" placeholder="Şifre" autocomplete="new-password" required><br>
-                <input type="submit" value="GİRİŞ" name="signup">
+                <input type="submit" value="GİRİŞ" name="login">
             </form>
         </div>
     </div>
 </div>
 <?php
     if(isset($_POST["login"])){
-        // Üye olma işlemleri bura yazılacak
-        // Var olan üye için logine yönlendir
-        // Üye olununca /host/create_restaurant 'a yönledir
+        // Giriş yapma işlemleri bura yazılacak
+        // Olmayan üye için registera yönlendir
+        // Doğru giriş yapılırsa /client/ 'a yönledir
     }
 ?>
 <footer>

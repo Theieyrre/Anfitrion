@@ -1,0 +1,64 @@
+body { 
+    background: url(../images/33030.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+form {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+form h1.form--header {
+    font-family: "Bad Script";
+    font-size: 3rem;
+    color: #884200;
+}
+
+form h2.form--header {
+    font-family: "Viaoda Libre";
+    font-size: 1.5rem;
+    color: #86501e;
+}
+
+form input[type="text"], form input[type="password"], form input[type="tel"] {
+    margin: 0.5rem;
+    border: none;
+    background-color: #f5e4c6;
+    padding: 0.5rem;
+    color: #884200;
+}
+
+form input[type="text"]:-webkit-autofill, form input[type="password"]:-webkit-autofill, form input[type="tel"]:-webkit-autofill,
+form input[type="text"]:focus, form input[type="password"]:focus, form input[type="tel"]:focus {
+    animation-delay: 0.5s;
+    animation-name: autofill;
+    animation-fill-mode: both;
+    animation-duration: 1.5s;
+    margin: 0.5rem;
+    outline: none;
+    
+}
+
+::placeholder {
+    color: #86501e;
+}
+
+form input[type="submit"] {
+    background-color: #c58e5a;
+    color: #945316;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+}
+
+@keyframes autofill {
+    0% {
+        background-color: #f5e4c6;
+    }
+    100% {
+        background-color: #f3c97a;
+    }
+}

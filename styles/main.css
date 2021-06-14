@@ -1,11 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Dancing+Script&family=Viaoda+Libre&display=swap');
 
 footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #666464a4;
-    color: white;
+    background-color: #bbb9b9a4;
     text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: rgb(31, 31, 31);
 }
