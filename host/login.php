@@ -6,37 +6,27 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" integrity="sha512-OdEXQYCOldjqUEsuMKsZRj93Ht23QRlhIb8E/X0sbwZhme8eUw6g8q7AdxGJKakcBbv7+/PX0Gc2btf7Ru8cZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="images/Anfitrion-main.png" type="image/png">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/form.css">
     <title>Anfitrión - Online Restoran Rezervasyon</title>
 </head>
 <body>
 <?php 
     if(isset($_SESSION["username"])){
-        if($_SESSION["is_host"]){
-            header("Location: /host/");
-        }
-        header("Location: /client/");
+        header("Location: /host/");
     }
 ?>
-    <div class="container">
-        <a class="navbar-brand" href="index.php">
-            <img src="images/Anfitrion-hover.png" alt="" height="100px">
-            Anfitrión
-        </a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-auto">
+            <form method="post">
+                <input type="text" name="username" placeholder="Emailiniz/Telefon numaranız" maxlength="15" required>
+                <input type="password" name="password" placeholder="Şifreniz" required>
+                <input type="submit" value="GİRİŞ" name="login" class="btn btn-primary">
+            </form>
+        </div>
     </div>
-    <div class="buttons d-flex justify-content-center">
-        <a href="client">
-            <button class="page-button">
-                Rezervasyon yapmak için tıklayınız
-            </button>
-        </a>
-        <a href="host">
-            <button class="page-button">
-                Restoran sahibiyseniz, arayüz için tıklayınız
-            </button>
-        </a>
-    </div>
+</div>
 <footer>
 Frame vector created by pch.vector - www.freepik.com
 Background photo created by wirestock - www.freepik.com
