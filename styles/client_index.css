@@ -1,0 +1,18 @@
+body .container h1{
+    margin-top: 5%;
+    font-family: "Bad Script";
+}
+
+form .stars input {
+    display: none;
+}
+
+form .stars input + label {
+    color: #ffe400;
+    text-shadow: 1px 1px 0 #ffe400;
+    cursor: pointer;
+}
+
+form .stars input:checked + label ~ label {
+    color: #838383;
+  }
