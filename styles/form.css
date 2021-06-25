@@ -23,20 +23,40 @@ form h2.form--header {
     color: #86501e;
 }
 
-form input[type="text"], form input[type="password"], form input[type="tel"] {
+form input[type="text"], form input[type="password"], form input[type="tel"], input[type="number"] {
     margin: 0.5rem;
     border: none;
     background-color: #f5e4c6;
     padding: 0.5rem;
     color: #884200;
+    width: 20rem;
 }
 
-form input[type="text"]:-webkit-autofill, form input[type="password"]:-webkit-autofill, form input[type="tel"]:-webkit-autofill,
-form input[type="text"]:focus, form input[type="password"]:focus, form input[type="tel"]:focus {
+form input[type="text"]:-webkit-autofill, form input[type="password"]:-webkit-autofill, form input[type="tel"]:-webkit-autofill
+form input[type="text"]:focus, form input[type="password"]:focus, form input[type="tel"]:focus, form input[type="number"]:focus {
     animation-delay: 0.5s;
     animation-name: autofill;
     animation-fill-mode: both;
-    animation-duration: 1.5s;
+    animation-duration: 1s;
+    margin: 0.5rem;
+    outline: none;
+    
+}
+
+form select {
+    margin: 0.5rem;
+    border: none;
+    background-color: #f5e4c6;
+    padding: 0.5rem;
+    color: #884200;
+    width: 20rem;
+}
+
+form select:focus {
+    animation-delay: 0.5s;
+    animation-name: autofill;
+    animation-fill-mode: both;
+    animation-duration: 1s;
     margin: 0.5rem;
     outline: none;
     
@@ -52,6 +72,40 @@ form input[type="submit"] {
     padding: 0.5rem 1rem 0.5rem 1rem;
     border-radius: 0.5rem;
     border: none;
+}
+
+form p.label, label {
+    font-family: "Bad Script";
+    font-size: 1.4rem;
+    color: rgb(82, 45, 0);
+}
+
+form label{
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.check input[type="radio"] {
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    border: 2px solid #884200;
+    background-color: rgba(252, 208, 155, 0.767);
+}
+
+.check input[type="radio"]:checked {
+    background-color: #c58e5a;
+}
+
+form a{
+    text-decoration: none;
+    font-family: "Bad Script";
+    font-size: 1.4rem;
+    color: rgb(82, 45, 0);
+}
+
+form a:hover {
+    color: rgb(143, 79, 0);
 }
 
 @keyframes autofill {

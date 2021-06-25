@@ -30,6 +30,8 @@
                 </h2>
                 <input type="text" name="username" placeholder="Email/Telefon" maxlength="30" required><br>
                 <input type="password" name="password" placeholder="Şifre" autocomplete="new-password" required><br>
+                <p class="label">Henüz üye değil misiniz ? </p>
+                <a href="register.php">Üye olmak için tıklayın</a><br>
                 <input type="submit" value="GİRİŞ" name="login">
             </form>
         </div>

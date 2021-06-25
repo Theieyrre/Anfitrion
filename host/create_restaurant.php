@@ -8,15 +8,16 @@
     <link rel="shortcut icon" href="../images/Anfitrion-main.png" type="image/png">
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/form.css">
+    <link rel="stylesheet" href="../styles/create_restaurant.css">
     <title>Anfitrión - Online Restoran Rezervasyon</title>
 </head>
 <body>
 <?php 
     include '../db.php';
     session_start();
-    if(isset($_SESSION["username"])){
-        header("Location: /client/");
-    }
+    //if(!isset($_SESSION["username"])){
+    //    header("Location: login.php");
+    //}
 ?>
 <div class="container">
     <div class="row justify-content-md-center">
@@ -25,25 +26,21 @@
                 <h1 class="form--header">
                     Restoranınızı oluşturun !
                 </h1>
-                <h2 class="form--header">
-                    !!! EKSİK !!!
-                </h2>
-                <input type="text" name="username" placeholder="Email/Telefon" maxlength="30" required><br>
-                <input type="password" name="password" placeholder="Şifre" autocomplete="new-password" required><br>
-                <input type="submit" value="GİRİŞ" name="login">
+                <input type="text" name="name" placeholder="Restoranınızın adı" maxlength="30" required><br>
+                <textarea name="desc" rows="4" cols="50" maxlength="140">Restoranınızı kısaca açıklayınız</textarea><br>
+                <input type="submit" value="KAYDET" name="save">
             </form>
         </div>
     </div>
 </div>
 <?php
-    if(isset($_POST["login"])){
-        // Giriş yapma işlemleri bura yazılacak
-        // Olmayan üye için registera yönlendir
-        // Doğru giriş yapılırsa /client/ 'a yönledir
+    if(isset($_POST["save"])){
+        // Restoran kaydetme işlemleri burada yapılacak
+        // Başarılı kayıttan sonra add_food a yönlendir
     }
 ?>
 <footer>
-<a href='https://www.freepik.com/vectors/building'>Building vector created by macrovector - www.freepik.com</a>
+<a href='https://www.freepik.com/photos/background'>Background photo created by evening_tao - www.freepik.com</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>    
 </body>

@@ -15,7 +15,7 @@
     include '../db.php';
     session_start();
     if(isset($_SESSION["username"])){
-        header("Location: /client/");
+        header("Location: /host/");
     }
 ?>
 <div class="container">

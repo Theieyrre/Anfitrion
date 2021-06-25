@@ -1,0 +1,35 @@
+body { 
+    background: url(../images/restaurant-interior.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+form {
+    background-color: rgba(252, 208, 155, 0.767);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+form h1.form--header {
+    color:rgb(82, 45, 0);
+}
+
+form textarea {
+    margin: 0.5rem;
+    border: none;
+    background-color: #f5e4c6;
+    padding: 0.5rem;
+    color: #884200;
+}
+
+form textarea:focus {
+    animation-delay: 0.5s;
+    animation-name: autofill;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+    margin: 0.5rem;
+    outline: none;
+    
+}
