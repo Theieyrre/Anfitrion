@@ -48,41 +48,16 @@
                 <span>%restoran adı%</span>
                 <span>%restoran kategori%</span>
                 <span>%mevcut rezervasyon%</span>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reservationModal" data-restaurant-name="%restoran adı%" data-date="%date%">
-                    Rezerve Et
-                </button>
+                <a href="reservation.php?id=%restaurant_id%">
+                    <button type="button" class="btn btn-primary">
+                        Rezerve Et
+                    </button>
+                </a>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="reservationModal" tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Rezervasyon detaylarını giriniz</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <form method="post">
-            <p class="label">Restoran adı</p>
-            <input type="text" name="restaurant" class="name" disabled>
-            <p class="label">Tarih</p>
-            <input type="text" name="date" class="date" disabled>
-            <p class="label">Kaç kişi olacaksınız ?</p>
-            <input type="number" name="person">
-            <p class="label">Ne zaman geleceksiniz ?</p>
-            <input type="time" name="hour" min="%restoran_min" max="%restoran_max" required>
-          </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">REZERVE ET</button>
-      </div>
-    </div>
-  </div>
-</div>
 <?php 
     //if(!isset($_SESSION["username"])){
     //    header("Location: login.php");
@@ -99,22 +74,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $(".date").datepicker({dateFormat: "dd-mm-yyyy"});
-        $(".date").datepicker("setDate", new Date());
-
-        $('#reservationModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget)
-            var name = button.data('restaurant-name')
-            var modal = $(this)
-            modal.find('.modal-body input.name').val(name)
-            modal.find('.modal-body input.name').attr("placeholder",name);
-            var date = button.data('date')
-            modal.find('.modal-body input.date').val(date)
-            modal.find('.modal-body input.date').attr("placeholder",date);
-        });
-    });
-</script>
 </body>
 </html>

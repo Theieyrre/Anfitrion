@@ -1,0 +1,34 @@
+body { 
+    background: url(../images/dining-table-ready-party-ballroom.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.row form {
+    text-align: center;
+    margin-top: 5rem;
+    background-color: rgba(172, 148, 118, 0.795);
+    width: 40rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.menu-card{
+    border-radius: 2rem;
+    background-color: #c5b09cab;
+    width: 30rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.menu-card .menu-card-header{
+    font-family: "Bad Script";
+    font-size: 2rem;
+    color: #aa7d2b;
+}
+
+.menu-card.daily{
+    border: 3px solid #ffb937;
+}
