@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/form.css">
     <link rel="stylesheet" href="../styles/create_restaurant.css">
+    <link rel="stylesheet" href="../styles/add_food.css">
     <title>Anfitrión - Online Restoran Rezervasyon</title>
 </head>
 <body>
@@ -57,7 +58,7 @@
     }
 ?>
 <footer>
-<a href='https://www.freepik.com/photos/background'>Background photo created by evening_tao - www.freepik.com</a>
+<a href='https://www.freepik.com/photos/food'>Food photo created by stockking - www.freepik.com</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>    
 </body>

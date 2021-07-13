@@ -11,9 +11,11 @@
 </head>
 <body>
 <?php 
-    if(!isset($_SESSION["username"])){
-        header("Location: login.php");
-    }
+    include '../db.php';
+    session_start();
+    //if(!isset($_SESSION["username"])){
+    //    header("Location: login.php");
+    //}
 ?>
 <footer>
 Frame vector created by pch.vector - www.freepik.com

@@ -35,21 +35,49 @@
                 <input type="number" id="person" name="person">
                 <p class="label">Ne zaman geleceksiniz ?</p>
                 <input type="time" name="hour" min="%restoran_min" max="%restoran_max" required>
-                <div class="col d-flex justify-content-center">
-                    <div class="menu-card daily">
-                        <div class="menu-card-header">
-                            Günün Menüsü 
+                <div id="menus" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <?php // Oluşturduğun menü kadar li de üret?>
+                    <li data-target="#menus" data-slide-to="0" class="active"></li>
+                    <li data-target="#menus" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <?php // Gerektiği kadar menüyü iterative aşağı kod sekmesini kullanarak oluştur. daily değilse classta daily olmasın?>
+                        <div class="menu-card daily carousel-item active">
+                            <div class="menu-card-header">
+                                Günün Menüsü 
+                            </div>
+                            <div class="menu-card-body">
+                                <?php // Gerektiği kadar kategori ile iterative aşağı kod sekmesini kullanarak menu oluştur?>
+                                <h5 class="menu-card-title">%foodcategori%</h5>
+                                <p class="menu-card-text">%foodaçıklama%</p>
+                                <p class="label">Kaç kişi bu menüden alıcak ?</p>
+                                <input type="number" class="max_person" min="0" name="amount">
+                            </div>
                         </div>
-                        <div class="menu-card-body">
-                            <?php // Gerektiği kadar kategori ile iterative aşağı kod sekmesini kullanarak menu oluştur?>
-                            <h5 class="menu-card-title">%foodcategori%</h5>
-                            <p class="menu-card-text">%foodaçıklama%</p>
-                            <p class="label">Kaç kişi bu menüden alıcak ?</p>
-                            <input type="number" class="max_person" min="0" name="amount">
-                        </div>
+                    <?php // Gerektiği kadar card div içerisini iterasyon ile üret ve doldur?>
+                    <div class="menu-card carousel-item">
+                            <div class="menu-card-header">
+                                Menü 1 
+                            </div>
+                            <div class="menu-card-body">
+                                <?php // Gerektiği kadar kategori ile iterative aşağı kod sekmesini kullanarak menu oluştur?>
+                                <h5 class="menu-card-title">%foodcategori%</h5>
+                                <p class="menu-card-text">%foodaçıklama%</p>
+                                <p class="label">Kaç kişi bu menüden alıcak ?</p>
+                                <input type="number" class="max_person" min="0" name="amount">
+                            </div>
                     </div>
                 </div>
-                <?php // Gerektiği kadar card div içerisini iterasyon ile üret ve doldur?>
+                <a class="carousel-control-prev" href="#menus" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#menus" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                </div>
         </form>
 </div>
 

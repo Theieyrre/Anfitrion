@@ -1,0 +1,7 @@
+body { 
+    background: url(../images/top-view-fried-meat-patties-with-pide-salad-spices-table.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

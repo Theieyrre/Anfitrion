@@ -9,6 +9,7 @@ body {
 form {
     margin-top: 3rem;
     text-align: center;
+    backdrop-filter: blur(5px);
 }
 
 form h1.form--header {

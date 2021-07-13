@@ -19,6 +19,12 @@ body .container h1{
     font-family: "Bad Script";
 }
 
+body .container h1.title{
+    margin-top: 5%;
+    font-family: "Bad Script";
+    font-size: 1.8rem;
+}
+
 form .stars input {
     display: none;
 }
@@ -31,4 +37,8 @@ form .stars input + label {
 
 form .stars input:checked + label ~ label {
     color: #838383;
-  }
+}
+
+button.btn-secondary{
+    margin-top: 1rem;
+}
