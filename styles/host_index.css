@@ -1,0 +1,32 @@
+body { 
+    background: url(../images/restaurant-table-14-persons-restaurant-hall-with-brick-walls-wide-windows-wood-ceiling.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body .container {
+    background-color: rgba(255, 207, 148, 0.685);
+    backdrop-filter: blur(5px);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+
+body .container h1{
+    font-family: "Bad Script";
+}
+
+body .container .rezervasyon {
+    display: flex;
+    font-size: 1.2rem;;
+}
+
+body .container .rezervasyon p.menu{
+    margin-left: 3rem;
+}
+
+body .container .rezervasyon p.menu>span{
+    color: rgb(255, 38, 0);
+}
