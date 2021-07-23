@@ -1,5 +1,7 @@
 <?php
-        function CreateRestourant ($Restourantname,$RestourantDescription){
+        include 'insertWithJoins.php';
+        function CreateRestourant ($Restourantname,$RestourantDescription,
+        $MasaSayisi,$MasaCapacity,$day,$open_time,$close_time){
             include 'connect.php';
             $restoourant_total_client=0;
             $myQuery = $db->prepare('INSERT INTO restaurant SET 
@@ -7,7 +9,7 @@
             description = ?,
             total_client = ?
             ');
-
+           
             $add = $myQuery ->execute([
                 $Restourantname,
                 $RestourantDescription,
@@ -15,9 +17,21 @@
                 
             ]);
             if(!$add){
-                echo("Adding Error: ".$myQuery->errorInfo())[2];
+                echo("In restoran adding Error: ".$myQuery->errorInfo())[2];
+                return 0; 
             }  
-         }
+
+            
+            $last_id = $db->lastInsertId();
+            CreateSchedule($last_id,$day,$open_time,$close_time);
+            
+            for($i=0;$i<$MasaSayisi;$i++){
+                CreateMesa ($last_id,0,$MasaCapacity);
+            }
+
+            $last_id = $db->lastInsertId();
+            return $last_id;
+        }
         function CreateUser ($UserMail,
         $UserPhoneNumber,$UserPAssword,$UserFirstName,$UserLastName ){
             include 'connect.php';
@@ -41,7 +55,11 @@
             ]);
             if(!$add){
                 echo("Adding Error: ".$myQuery->errorInfo())[2];
+                return 0;
             }  
+            $last_id = $db->lastInsertId();
+           
+            return $last_id;
          } 
          function CreateFood ($Foodname,
         $FoodDescription,$Cusine,$Category,$Price ){
@@ -66,13 +84,43 @@
                 ]);
             }
             else{
-                $add=0;
+                echo "Girilen Kategori hatalidir.";
             }
             if(!$add){
                 echo("Adding Error: ".$myQuery->errorInfo())[2];
+                return 0;
             }  
+            $last_id = $db->lastInsertId();
+            return $last_id; 
          } 
-         //CreateRestourant ("rest1","deneme restorant1");
+         function CreateMesa ($restaurant_id,
+         $reservation_id,$capacity){
+             include 'connect.php';
+             $myQuery = $db->prepare('INSERT INTO mesa SET 
+                 restaurant_id = ?,
+                 reservation_id = ?,
+                 capacity = ?
+             ');
+ 
+             $add = $myQuery ->execute([
+                 $restaurant_id,
+                 $reservation_id,
+                 $capacity
+                 
+             ]);
+             if(!$add){
+                 echo("In mesa adding Error: ".$myQuery->errorInfo()[2]);
+                 return 0;
+             } 
+             
+            $last_id = $db->lastInsertId();
+            return $last_id; 
+            }
+
+            
+        // CreateRestourant ("Search4","deneme restorant1",5,4,
+         //"tuesday",date("h:i"),date("h:i"));
          //CreateUser ("user1@mai2",05346522660,"123","oguz","ocal");
          //CreateFood ("baklava","fistikli tatli","tatli","extra",15);
+        // CreateReservation (111,111,1,"kk",2);
 ?>
