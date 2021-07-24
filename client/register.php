@@ -40,8 +40,13 @@
 </div>
 <?php
     if(isset($_POST["login"])){
-        // Üye olma işlemleri bura yazılacak
-        // Var olan üye için logine yönlendir
+        if(GetUserID($_POST["email"])==0){
+            CreateClient ($_POST["email"],$_POST["phonenumber"],$_POST["password"],$_POST["firstname"],$_POST["lastname"] );
+            
+        }
+        else{
+            // Var olan üye için logine yönlendir
+        }  
         // Üye olununca /client/ 'a yönledir
     }
 ?>
