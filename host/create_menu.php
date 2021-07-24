@@ -82,13 +82,9 @@
 </div>
 <?php
     if(isset($_POST["save"])){
-        // Menü kaydetme işlemleri burada yapılacak
+        CreateMenu (GetRestaurantID($Name),$_POST["name"],$_POST["price"],$is_daily,$_POST["is_available"] )
+        //$Name kısmına restoran adı ya da giret methodu silip restoran idsi
+        //$is_daily isin sorgu yok
+        //menude kategori attribute u yok
         // Başarılı kayıttan index'e gönder
     }
-?>
-<footer>
-<a href='https://www.freepik.com/photos/background'>Background photo created by benzoix - www.freepik.com</a>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>    
-</body>
-</html>
