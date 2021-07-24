@@ -28,7 +28,12 @@
             <div class="rezervasyon">
                 <span>%saat%</span>
                 <?php 
-                // Iterative olarak menüleri listele
+                     $menuler=GetTableInfoWithAnyKey("menu","restaurat_id",$id);
+                     //RESTORAN İD Sİ EKLENECEK
+                     foreach($menuler as $menu){
+                        //print_r($menu);
+                        //MENULER BURADA
+                     }
                 ?>
                 <p class="menu">%menu adı% - <span>%sayı% adet</span></p>
             </div>
