@@ -28,7 +28,7 @@
                 <h2 class="form--header">
                     Giriş bilgilerinizi doldurunuz
                 </h2>
-                <input type="text" name="username" placeholder="Email/Telefon" maxlength="30" required><br>
+                <input type="text" name="username" placeholder="Email" maxlength="30" required><br>
                 <input type="password" name="password" placeholder="Şifre" autocomplete="new-password" required><br>
                 <p class="label">Henüz üye değil misiniz ? </p>
                 <a href="register.php">Üye olmak için tıklayın</a><br>
@@ -39,9 +39,15 @@
 </div>
 <?php
     if(isset($_POST["login"])){
-        // Giriş yapma işlemleri bura yazılacak
-        // Olmayan üye için registera yönlendir
-        // Doğru giriş yapılırsa /host/ 'a yönledir
+        if(checkUser($_POST["username"],$_POST["password"])){
+            // Doğru giriş yapılırsa /host/ 'a yönledir
+        }
+        else{
+            // Olmayan üye için registera yönlendir
+        }
+        
+        
+        
     }
 ?>
 <footer>
