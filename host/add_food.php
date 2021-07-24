@@ -53,13 +53,10 @@
 </div>
 <?php
     if(isset($_POST["save"])){
-        // Yiyecek kaydetme işlemleri burada yapılacak
-        // Başarılı kayıttan sonra create_menu e yönlendir
+        $basarili=CreateFood ($_POST["name"],$_POST["desc"],$_POST["cuisine"],$_POST["category"],$_POST["price"]);
+        if(!$basarili){
+            // Başarılı kayıttan sonra create_menu e yönlendir
+        }
+        
     }
 ?>
-<footer>
-<a href='https://www.freepik.com/photos/food'>Food photo created by stockking - www.freepik.com</a>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>    
-</body>
-</html>
