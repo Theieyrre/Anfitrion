@@ -39,9 +39,12 @@
 </div>
 <?php
     if(isset($_POST["login"])){
-        // Giriş yapma işlemleri bura yazılacak
-        // Olmayan üye için registera yönlendir
-        // Doğru giriş yapılırsa /client/ 'a yönledir
+        if(checkUser($_POST["username"],$_POST["password"])){
+            // Doğru giriş yapılırsa /host/ 'a yönledir
+        }
+        else{
+            // Olmayan üye için registera yönlendir
+        }
     }
 ?>
 <footer>
