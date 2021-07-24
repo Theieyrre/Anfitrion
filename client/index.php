@@ -32,6 +32,12 @@
                 <p class="label">Hangi mutfaktan istersiniz ?</p>
                 <select name="category">
                     <?php 
+                        // restoranların kategorisi yok ama
+                        
+                        //GetAllRestaurantInfo();// KULLANARAK TÜM RESTORAN BİLGİLERİNİ FOREACH İLE ALABİLİRSİN
+                        //GetRestaurantInfo($RestaurantID);// BUNUNLA İSE İD İLE RESTORAN ÇEKEBİLİRSİN 
+                        //GetRestaurantInfo(GetRestaurantID($Name));// BUNUNLA İSE RESTORAN NAME İLE RESTORAN ÇEKEBİLİRSİN 
+
                         // Restoran kategorilerini çekip burda option içerisine listele
                     ?>
                     <option value="%kategori_adı%">%kategori adı%</option>
