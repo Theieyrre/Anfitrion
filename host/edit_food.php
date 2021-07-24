@@ -61,7 +61,12 @@
 </div>
 <?php
     if(isset($_POST["save"])){
-        // Yiyecek düzenleme işlemleri burada yapılacak
+        Set("food",$_GET[id],"name",$_GET["name"]);
+        Set("food",$_GET[id],"description",$_GET["desc"]);
+        Set("food",$_GET[id],"cuisine",$_GET["cuisine"]);
+        Set("food",$_GET[id],"category",$_GET["category"]);
+        Set("food",$_GET[id],"price",$_GET["price"]);
+        Set("food",$_GET[id],"is_available",$_GET["is_available"]);
         // Başarılı kayıttan sonra index e yönlendir
     }
 ?>
