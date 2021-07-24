@@ -21,8 +21,17 @@
     if(isset($_GET["id"])){
         
     }
-    // restoran id geçerli olduğu kontrolü yapılmalı 
-    // restoran açık mı kontrolü de yapılmalı
+    $restoranBilgileri=GetRestaurantInfo(GetRestaurantID($_POST["name"]));//restoran name ile id bulunabilir
+    if(restoranBilgileri)
+    {
+        $isopen=($restoranBilgileri["close_time"]>$_POST["hour"])&&($restoranBilgileri["open_time"]=<$_POST["hour"]);
+
+    }
+    if(!$isopen){
+        echo "restoran belirtilen saatlerde acik degildir";
+    }
+    
+    
 ?>
 
 <div class="row d-flex justify-content-center">
@@ -83,8 +92,12 @@
 
 <?php
     if(isset($_POST["login"])){
-        // Giriş yapma işlemleri bura yazılacak
-        // Olmayan üye için registera yönlendir
+        $has_participated=0;//daha katılmadı
+        CreateReservation (GetRestaurantID($_POST["name"]),
+         $userid,$_POST["number"],$_POST["note"],$has_participated);
+
+        // Giriş yapma işlemleri bura yazılacak  // bunlar zaten üye olanlara gözükmüyor mu?
+        // Olmayan üye için registera yönlendir   // başta login ederse anca bu ekran gelsin bence
         // Doğru giriş yapılırsa /client/ 'a yönledir
     }
 ?>
