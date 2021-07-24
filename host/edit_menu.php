@@ -86,7 +86,10 @@
 </div>
 <?php
     if(isset($_POST["save"])){
-        // Menü güncelleme işlemleri burada yapılacak
+        //MENUDE KATEGORİ ATTRİBUTE U YOK
+        Set("menu",$_GET[id],"name",$_GET["name"]);
+        Set("menu",$_GET[id],"name",$_GET["price"]);
+        Set("menu",$_GET[id],"name",$_GET["is_available"]);
         // Başarılı kayıttan index'e gönder
     }
 ?>
