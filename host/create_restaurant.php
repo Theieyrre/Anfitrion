@@ -28,14 +28,20 @@
                 </h1>
                 <input type="text" name="name" placeholder="Restoranınızın adı" maxlength="30" required><br>
                 <textarea name="desc" rows="4" cols="50" maxlength="140">Restoranınızı kısaca açıklayınız</textarea><br>
+                
                 <input type="submit" value="KAYDET" name="save">
             </form>
         </div>
     </div>
 </div>
 <?php
+
+ CreateRestourant ($Restourantname,$RestourantDescription,
+ $MasaSayisi,$MasaCapacity,$day,$open_time,$close_time);
+ 
     if(isset($_POST["save"])){
-        // Restoran kaydetme işlemleri burada yapılacak
+        $restaurantid=CreateRestourant ($_POST["name"],$_POST["desc"],$MasaSayisi,$MasaCapacity,$day,$open_time,$close_time){
+        CreateHost($userid,restaurantid,$_POST["name"]);
         // Başarılı kayıttan sonra add_food a yönlendir
     }
 ?>
