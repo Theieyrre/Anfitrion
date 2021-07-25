@@ -40,8 +40,8 @@
  $MasaSayisi,$MasaCapacity,$day,$open_time,$close_time);
  
     if(isset($_POST["save"])){
-        $restaurantid=CreateRestourant ($_POST["name"],$_POST["desc"],$MasaSayisi,$MasaCapacity,$day,$open_time,$close_time){
-        CreateHost($userid,restaurantid,$_POST["name"]);
+        $restaurantid=CreateRestourant ($_POST["name"],$_POST["desc"],$MasaSayisi,$MasaCapacity,$day,$open_time,$close_time);
+        //CreateHost($userid,restaurantid,$_POST["name"]);
         // Başarılı kayıttan sonra add_food a yönlendir
     }
 ?>
