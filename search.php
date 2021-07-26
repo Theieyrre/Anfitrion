@@ -40,6 +40,26 @@
         return $knowlegde;
 
     }
+    function GetAllRestaurants(){
+        include 'connect.php';
+   
+            $knowlegde = $db->query("SELECT *  FROM restaurant 
+            INNER JOiN schedule
+            ON (restaurant.restaurant_id=schedule.restaurant_id)
+            INNER JOiN host
+            ON (restaurant.restaurant_id=host.restaurant_id)
+            ")->fetch(PDO::FETCH_ASSOC);
+          
+            print_r($knowlegde);
+            if(!$knowlegde){
+            
+                echo "Restoran bulunmamaktadir";
+                return 0;
+            }
+       
+        return $knowlegde;
+
+    }
     function GetRestaurantID($Name){
         include 'connect.php';
    
