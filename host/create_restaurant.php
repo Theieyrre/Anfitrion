@@ -28,6 +28,21 @@
                 </h1>
                 <input type="text" name="name" placeholder="Restoranınızın adı" maxlength="30" required><br>
                 <textarea name="desc" rows="4" cols="50" maxlength="140">Restoranınızı kısaca açıklayınız</textarea><br>
+                <input type="text" name="masa_sayisi" placeholder="Masa sayısı" maxlength="30" required><br>
+                <input type="text" name="MasaCapacity" placeholder="Masaların kapasitesi" maxlength="30" required><br>
+                <select name="days[]" multiple>
+                <?php 
+                         <option value="monday">Pazartesş</option>
+                       <option value="tuesday">Salı</option>
+                       <option value="wednesday">Çarşamba</option>
+                       <option value="thursday">Perşembe</option>
+                       <option value="friday">Cuma</option>
+                       <option value="saturday">Cumartesi</option>
+                       <option value="sunday">Pazar</option>                               
+                    ?>
+                </select><br>
+                <input type="text" name="open_time" placeholder="Açılış saati" maxlength="30" required><br>
+                <input type="text" name="close_time" placeholder="Kapanış saati" maxlength="30" required><br>
                 
                 <input type="submit" value="KAYDET" name="save">
             </form>
@@ -35,14 +50,15 @@
     </div>
 </div>
 <?php
-
+$restaurant_name=
  CreateRestourant ($Restourantname,$RestourantDescription,
  $MasaSayisi,$MasaCapacity,$day,$open_time,$close_time);
  
     if(isset($_POST["save"])){
-        $restaurantid=CreateRestourant ($_POST["name"],$_POST["desc"],$MasaSayisi,$MasaCapacity,$day,$open_time,$close_time);
-        //CreateHost($userid,restaurantid,$_POST["name"]);
-        // Başarılı kayıttan sonra add_food a yönlendir
+        $restaurant_id=CreateRestourant ($_POST["name"],$_POST["desc"],$_POST["masa_sayisi"],$_POST["MasaCapacity"],$_POST["days[]"],
+        $_POST["open_time"],$_POST["close_time"]){
+        CreateHost($userid,$restaurantid,$_POST["name"]);
+        header("Location: ./host/add_food.php");
     }
 ?>
 <footer>
