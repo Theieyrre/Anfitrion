@@ -67,7 +67,7 @@
         Set("food",$_GET["id"],"category",$_GET["category"]);
         Set("food",$_GET["id"],"price",$_GET["price"]);
         Set("food",$_GET["id"],"is_available",$_GET["is_available"]);
-        // Başarılı kayıttan sonra index e yönlendir
+        header("Location: ./host/index.php"); 
     }
 ?>
 <footer>
