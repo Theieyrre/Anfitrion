@@ -62,7 +62,7 @@
             return $last_id;
          } 
          function CreateFood ($Foodname,
-        $FoodDescription,$Cusine,$Category,$Price ){
+        $FoodDescription,$Cusine,$Category,$Price,$is_available ){
             include 'connect.php';
             
             
@@ -73,14 +73,16 @@
                 description = ?,
                 cuisine =?,
                 category =?,
-                price=?
+                price=?,
+                is_available=?
             ');
                 $add = $myQuery ->execute([
                 $Foodname,
                 $FoodDescription,
                 $Cusine,
                 $Category,
-                $Price
+                $Price,
+                $is_available
                 ]);
             }
             else{
@@ -106,6 +108,27 @@
                  $restaurant_id,
                  $reservation_id,
                  $capacity
+                 
+             ]);
+             if(!$add){
+                 echo("In mesa adding Error: ".$myQuery->errorInfo()[2]);
+                 return 0;
+             } 
+             
+            $last_id = $db->lastInsertId();
+            return $last_id; 
+            }
+            function CreateContains ($food_id,
+         $menu_id){
+             include 'connect.php';
+             $myQuery = $db->prepare('INSERT INTO contains SET 
+                 food_id = ?,
+                 menu_id = ?
+             ');
+ 
+             $add = $myQuery ->execute([
+                $food_id,
+                $menu_id
                  
              ]);
              if(!$add){
