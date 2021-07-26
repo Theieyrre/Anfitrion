@@ -101,7 +101,7 @@
             $knowlegde = $db->query("SELECT user_id FROM user WHERE user.mail='$Mail'")->fetch(PDO::FETCH_ASSOC);
 
         if(!$knowlegde){
-            echo "Bu mail ile kayıtlı kullanici bulunmamaktadir";
+           // echo "Bu mail ile kayıtlı kullanici bulunmamaktadir";
             return 0;
         }
         return $knowlegde['user_id'];
@@ -120,9 +120,9 @@
         return $knowlegde;
 
     }
-    function GetHostID($Mail){
+    function GetHostID($user_id){
         include 'connect.php';
-            $user_id=(GetUserID("$Mail"));
+            
             $knowlegde = $db->query("SELECT host_id FROM host WHERE host.user_id='$user_id'")->fetch(PDO::FETCH_ASSOC);
 
         if(!$knowlegde){
