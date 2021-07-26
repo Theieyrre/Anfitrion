@@ -1,14 +1,12 @@
 <?php
    
-    function CreateHost($UserMail,$UserPhoneNumber,$UserPassword,$UserFirstName,
-    $UserLastName,$Restourantname,$RestourantDescription,
-    $MasaSayisi,$MasaCapacity,$day,$open_time,$close_time){
+    function CreateHost($userID,$restaurantID,$Restourantname){
         include 'connect.php';
-        $userID=CreateUser ($UserMail,$UserPhoneNumber,$UserPassword,
-        $UserFirstName,$UserLastName );
+        //$userID=CreateUser ($UserMail,$UserPhoneNumber,$UserPassword,
+        //$UserFirstName,$UserLastName );
 
-        $restaurantID=CreateRestourant ($Restourantname,$RestourantDescription,
-        $MasaSayisi,$MasaCapacity,$day,$open_time,$close_time);
+        //$restaurantID=CreateRestourant ($Restourantname,$RestourantDescription,
+        //$MasaSayisi,$MasaCapacity,$day,$open_time,$close_time);
         
         $myQuery = $db->prepare('INSERT INTO host SET 
             user_id = ?,
@@ -25,7 +23,6 @@
             if(!$add){
                 echo("Adding Error: ".$myQuery->errorInfo()[2]);
                 return 0;
-
             }  
             $last_id = $db->lastInsertId();
             return $last_id;
