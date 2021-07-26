@@ -33,24 +33,43 @@
                 <input type="text" name="name" placeholder="Menü adı" maxlength="20" required><br>
                 <p class="label">Başlangıç seçiniz</p>
                 <select name="category">
-                    <?php //select ile aldığın değerler için option html elementine selected ekle. Daha sonra diğer optionları listele
-                            // Duplicate kontrolüne dikkat et foreach ile yazarsan selected bir de seçilmemiş olarak listelenir ?>
+                    <option value="entrada">Başlangıç</option>
+                    <option value="ensalada">Salata</option>
+                    <option value="racion">Ana yemek</option>
+                    <option value="extra">Ekstra</opiton>
+                    <option value="postre">Yemek sonrası</option>
                 </select><br>
                 <p class="label">Salata seçiniz</p>
                 <select name="category">
-
+                    <option value="entrada">Başlangıç</option>
+                    <option value="ensalada">Salata</option>
+                    <option value="racion">Ana yemek</option>
+                    <option value="extra">Ekstra</opiton>
+                    <option value="postre">Yemek sonrası</option>
                 </select><br>
                 <p class="label">Ana yemek seçiniz</p>
                 <select name="category">
-
+                    <option value="entrada">Başlangıç</option>
+                    <option value="ensalada">Salata</option>
+                    <option value="racion">Ana yemek</option>
+                    <option value="extra">Ekstra</opiton>
+                    <option value="postre">Yemek sonrası</option>
                 </select><br>
                 <p class="label">Ekstra seçiniz</p>
                 <select name="category">
-
+                    <option value="entrada">Başlangıç</option>
+                    <option value="ensalada">Salata</option>
+                    <option value="racion">Ana yemek</option>
+                    <option value="extra">Ekstra</opiton>
+                    <option value="postre">Yemek sonrası</option>
                 </select><br>
                 <p class="label">Yemek sonrası seçiniz</p>
                 <select name="category">
-
+                    <option value="entrada">Başlangıç</option>
+                    <option value="ensalada">Salata</option>
+                    <option value="racion">Ana yemek</option>
+                    <option value="extra">Ekstra</opiton>
+                    <option value="postre">Yemek sonrası</option>
                 </select><br>
                 <input type="number" name="price" id="price" placeholder="Menü ücreti" required><br>
                 <p class="label">Müşterilerinize gösterilmesini istiyor musunuz ?</p>
@@ -67,10 +86,11 @@
 </div>
 <?php
     if(isset($_POST["save"])){
+        //MENUDE KATEGORİ ATTRİBUTE U YOK
         Set("menu",$_GET["id"],"name",$_GET["name"]);
         Set("menu",$_GET["id"],"name",$_GET["price"]);
         Set("menu",$_GET["id"],"name",$_GET["is_available"]);
-        // Başarılı kayıttan index'e gönder
+        header("Location: index.php");
     }
 ?>
 <footer>
