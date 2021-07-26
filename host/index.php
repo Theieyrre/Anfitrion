@@ -17,22 +17,33 @@
     //if(!isset($_SESSION["username"])){
     //    header("Location: login.php");
     //}
+    $AllRestaurants=GetAllRestaurants();
 ?>
-<div class="container">
-    <h1 class="welcome">%Restoran adı% için rezervasyonlar</h1>
-    <div class="row">
-        <div class="col">
+
+ <?php foreach($AllRestaurants as $Restauran): ?>
+    
+<tr>
+    <div class="container">
+        <h1 class="welcome"><?php $Restauran[name] ?>için rezervasyonlar</h1>
+        <div class="row">
+            <div class="col">
+
+
             <?php 
+            
             // Iterative olarak tarih için ASC olarak sırala ve yazdır
             ?>
             <div class="rezervasyon">
                 <span>%saat%</span>
                 <?php 
-                     $menuler=GetTableInfoWithAnyKey("menu","restaurat_id",$id);
-                     //RESTORAN İD Sİ EKLENECEK
+                     $menuler=GetTableInfoWithAnyKey("menu","restaurat_id",$Restauran[id]);
+                     
                      foreach($menuler as $menu){
-                        //print_r($menu);
-                        //MENULER BURADA
+                        print($menu[name]);
+                        print("\nİçerik:");
+                        foreach(GetTableInfoWithAnyKey("contains","menu_id",$menu["id"]) as $contain)
+                            print(GetFoodInfo($contain["food_id"]["name"])."\n");
+                    
                      }
                 ?>
                 <p class="menu">%menu adı% - <span>%sayı% adet</span></p>
@@ -46,3 +57,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>    
 </body>
 </html>
+
+</tr>
+<?php endforeach; ?>
