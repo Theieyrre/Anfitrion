@@ -40,10 +40,10 @@
 <?php
     if(isset($_POST["login"])){
         if(checkUser($_POST["username"],$_POST["password"])){
-            // Doğru giriş yapılırsa /host/ 'a yönledir
+            header("Location: ./host/"); 
         }
         else{
-            // Olmayan üye için registera yönlendir
+            header("Location: ./host/registar.php"); 
         }
         
         
