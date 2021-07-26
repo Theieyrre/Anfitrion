@@ -42,12 +42,12 @@
     if(isset($_POST["login"])){
         if(GetUserID($_POST["email"])==0){
             $userid=CreateUser ($_POST["email"],$_POST["phonenumber"],$_POST["password"],$_POST["firstname"],$_POST["lastname"] );
-            
+            header("Location: ./host/create_restaurant.php");
         }
         else{
-            // Var olan üye için logine yönlendir
+            header("Location: ./host/login.php");
         }        
-        // Üye olununca /host/create_restaurant 'a yönledir
+        
     }
 ?>
 <footer>
