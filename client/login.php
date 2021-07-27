@@ -43,6 +43,7 @@
         if($client_id!=0){
             header("Location: ./client/");
             $_SESSION["client_id"]=$client_id;
+            $_SESSION["username"]=$_POST["username"];
         }
         else{
             header("Location: ./client/register.php");
