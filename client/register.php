@@ -41,13 +41,15 @@
 <?php
     if(isset($_POST["login"])){
         if(GetUserID($_POST["email"])==0){
-            CreateClient ($_POST["email"],$_POST["phonenumber"],$_POST["password"],$_POST["firstname"],$_POST["lastname"] );
-            
+            $client_id=CreateClient ($_POST["email"],$_POST["phonenumber"],$_POST["password"],$_POST["firstname"],$_POST["lastname"] );
+            $_SESSION["client_id"]=$client_id;
+            header("Location: ./client/");
         }
         else{
-            // Var olan üye için logine yönlendir
+            header("Location: ./client/login.php");
+          
         }  
-        // Üye olununca /client/ 'a yönledir
+        
     }
 ?>
 <footer>
