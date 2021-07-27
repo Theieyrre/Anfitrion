@@ -28,24 +28,48 @@
                 </h1>
                 <input type="text" name="name" placeholder="Menü adı" maxlength="20" required><br>
                 <p class="label">Başlangıç seçiniz</p>
-                <select name="category">
-                    <?php //Tanımlanan foodlar içinde başlangıç olanları buraya option elementi içinde listele ?>
+                <select name="category1" >
+                    <?php  $bilgiler(GetTableInfoWithAnyKey("food","category","ensalada"));
+                         foreach ($bilgiler as $bilgi)
+                            <option value="$bilgi[id]">$bilgi[name]</option>
+                         endforeach 
+                    ?>
                 </select><br>
                 <p class="label">Salata seçiniz</p>
-                <select name="category">
-                    <?php //Tanımlanan foodlar içinde salata olanları buraya option elementi içinde listele ?>
+                <select name="category2" >
+                    <?php 
+                         $bilgiler(GetTableInfoWithAnyKey("food","category","ensalada"));
+                         foreach ($bilgiler as $bilgi)
+                            <option value="$bilgi[id]">$bilgi[name]</option>
+                         endforeach
+                     ?>
                 </select><br>
                 <p class="label">Ana yemek seçiniz</p>
-                <select name="category">
-                    <?php //Tanımlanan foodlar içinde ana yemek olanları buraya option elementi içinde listele ?>
+                <select name="category3" >
+                    <?php 
+                     $bilgiler(GetTableInfoWithAnyKey("food","category","racion"));
+                    foreach ($bilgiler as $bilgi)
+                       <option value="$bilgi[id]">$bilgi[name]</option>
+                    endforeach 
+                    ?>
                 </select><br>
                 <p class="label">Ekstra seçiniz</p>
-                <select name="category">
-                    <?php //Tanımlanan foodlar içinde ekstra olanları buraya option elementi içinde listele ?>
+                <select name="category4" >
+                    <?php 
+                     $bilgiler(GetTableInfoWithAnyKey("food","category","extra"));
+                    foreach ($bilgiler as $bilgi)
+                       <option value="$bilgi[id]">$bilgi[name]</option>
+                    endforeach 
+                    ?>
                 </select><br>
                 <p class="label">Yemek sonrası seçiniz</p>
-                <select name="category">
-                    <?php //Tanımlanan foodlar içinde yemek sonrası olanları buraya option elementi içinde listele ?>
+                <select name="category5" >
+                <?php 
+                     $bilgiler(GetTableInfoWithAnyKey("food","category","postre"));
+                    foreach ($bilgiler as $bilgi)
+                       <option value="$bilgi[id]">$bilgi[name]</option>
+                    endforeach 
+                    ?>
                 </select><br>
                 <input type="number" name="price" id="price" placeholder="Menü ücreti" required><br>
                 <p class="label">Müşterilerinize gösterilmesini istiyor musunuz ?</p>
@@ -62,12 +86,12 @@
 </div>
 <?php
     if(isset($_POST["save"])){
-        CreateMenu (GetRestaurantID($Name),$_POST["name"],$_POST["price"],$is_daily,$_POST["is_available"] );
-        // Her seçilen food için menu'ye insert yap ve idyi al
-        // daha sonra bu id ve food idler ile containse insert yap her kategori için
-        // kolaylaştırmak için option html elementi için value değerini food id yapabilirsin seçilen kategori için $_POST içinde value yazar 
-
-        //$Name kısmına restoran adı ya da giret methodu silip restoran idsi
+        $Menu_id=CreateMenu ($restaurant_id,$_POST["name"],$_POST["price"],1,$_POST["is_available"] );
+        CreateContains ($_POST["category1"],$Menu_id);
+        CreateContains ($_POST["category2"],$Menu_id);
+        CreateContains ($_POST["category3"],$Menu_id);
+        CreateContains ($_POST["category4"],$Menu_id);
+        CreateContains ($_POST["category5"],$Menu_id);
         //$is_daily isin sorgu yok
-        // Başarılı kayıttan index'e gönder
+        header("Location: ./host/index.php");
     }
