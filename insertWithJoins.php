@@ -57,7 +57,7 @@
              return $last_id;
     }
     function CreateReservation ($restaurant_id,
-         $client_id,$person_count,$note,$has_participated){
+         $client_id,$date,$person_count,$note,$has_participated){
              include 'connect.php';
              $myQuery = $db->prepare('INSERT INTO reservation SET 
                  restaurant_id = ?,
@@ -71,7 +71,7 @@
              $add = $myQuery ->execute([
                 $restaurant_id,
                 $client_id,
-                date('Y/m/d '),
+                $date,
                 $person_count,
                 $note,
                 $has_participated
