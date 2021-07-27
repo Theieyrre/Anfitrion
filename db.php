@@ -5,4 +5,5 @@
     require_once 'checks.php';
     require_once 'insertWithJoins.php';
     require_once 'sets.php';
+    require_once 'delete.php';
 ?>
