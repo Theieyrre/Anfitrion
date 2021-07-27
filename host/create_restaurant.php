@@ -41,9 +41,9 @@
                        <option value="sunday">Pazar</option>                               
                     ?>
                 </select><br>
-                <input type="time" name="open_time" placeholder="Açılış saati" maxlength="30" required><br>
-                <input type="time" name="close_time" placeholder="Kapanış saati" maxlength="30" required><br>
-                
+                <p>Açılış ve kapanış saatlerini giriniz</p>
+                <input type="time" name="open_time" required>
+                <input type="time" name="close_time" required>
                 <input type="submit" value="KAYDET" name="save">
             </form>
         </div>
@@ -55,9 +55,11 @@ $restaurant_name=
  $MasaSayisi,$MasaCapacity,$day,$open_time,$close_time);
  
     if(isset($_POST["save"])){
-        $restaurant_id=CreateRestourant ($_POST["name"],$_POST["desc"],$_POST["masa_sayisi"],$_POST["MasaCapacity"],$_POST["days[]"],
-        $_POST["open_time"],$_POST["close_time"]){
-        CreateHost($userid,$restaurantid,$_POST["name"]);
+        $restaurant_id=CreateRestourant ($_POST["name"],$_POST["desc"],$_POST["masa_sayisi"],$_POST["MasaCapacity"],$_POST["days[]"];
+        $_SESSION["restaurant_id"]=$restaurant_id;
+        $_POST["open_time"],$_POST["close_time"]);
+        $host_id=CreateHost($_SESSION["user_id"],$restaurant_id,$_POST["name"]);
+        $_SESSION["host_id"]=$host_id;
         header("Location: ./host/add_food.php");
     }
 ?>
