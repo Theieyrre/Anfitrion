@@ -43,6 +43,7 @@
         if($host_id!=0){
             header("Location: ./host/"); 
             $_SESSION["host_id"]=$host_id;
+             $_SESSION["username"]=$_POST["username"];
         }
         else{
             header("Location: ./host/registar.php"); 
