@@ -86,7 +86,7 @@
 </div>
 <?php
     if(isset($_POST["save"])){
-        $Menu_id=CreateMenu ($restaurant_id,$_POST["name"],$_POST["price"],1,$_POST["is_available"] );
+        $Menu_id=CreateMenu ($_SESSION["restaurant_id"],$_POST["name"],$_POST["price"],1,$_POST["is_available"] );
         CreateContains ($_POST["category1"],$Menu_id);
         CreateContains ($_POST["category2"],$Menu_id);
         CreateContains ($_POST["category3"],$Menu_id);
