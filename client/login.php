@@ -39,11 +39,13 @@
 </div>
 <?php
     if(isset($_POST["login"])){
-        if(checkUser($_POST["username"],$_POST["password"])){
-            // Doğru giriş yapılırsa /host/ 'a yönledir
+        $client_id=checkClient($_POST["username"],$_POST["password"]);
+        if($client_id!=0){
+            header("Location: ./client/");
+            $_SESSION["client_id"]=$client_id;
         }
         else{
-            // Olmayan üye için registera yönlendir
+            header("Location: ./client/register.php");
         }
     }
 ?>
