@@ -42,6 +42,7 @@
     if(isset($_POST["login"])){
         if(GetUserID($_POST["email"])==0){
             $userid=CreateUser ($_POST["email"],$_POST["phonenumber"],$_POST["password"],$_POST["firstname"],$_POST["lastname"] );
+            $_SESSION["user_id"]=$userid;
             header("Location: ./host/create_restaurant.php");
         }
         else{
