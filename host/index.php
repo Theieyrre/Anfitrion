@@ -18,21 +18,29 @@
     //    header("Location: login.php");
     //}
 ?>
-<div class="container">
-    <h1 class="welcome">%Restoran adı% için rezervasyonlar</h1>
-    <div class="row">
-        <div class="col">
+
+    <div class="container">
+        <h1 class="welcome"><?php GetRestaurantInfo($_SESSION["restaurat_id"])["name"] ?>için rezervasyonlar</h1>
+        <div class="row">
+            <div class="col">
+
+
             <?php 
-            // Iterative olarak tarih için ASC olarak sırala ve yazdır
+            
+            $reservations=GetTableInfoWithAnyKey("menu","restaurat_id",$_SESSION["restaurat_id"]);
+            
             ?>
             <div class="rezervasyon">
                 <span>%saat%</span>
                 <?php 
-                     $menuler=GetTableInfoWithAnyKey("menu","restaurat_id",$id);
-                     //RESTORAN İD Sİ EKLENECEK
+                     $menuler=GetTableInfoWithAnyKey("menu","restaurat_id",$_SESSION["restaurat_id"]);
+                     
                      foreach($menuler as $menu){
-                        //print_r($menu);
-                        //MENULER BURADA
+                        print($menu[name]);
+                        print("\nİçerik:");
+                        foreach(GetTableInfoWithAnyKey("contains","menu_id",$menu["id"]) as $contain){
+                            print(GetFoodInfo($contain["food_id"])["name"]."\n");
+                        }
                      }
                 ?>
                 <p class="menu">%menu adı% - <span>%sayı% adet</span></p>
