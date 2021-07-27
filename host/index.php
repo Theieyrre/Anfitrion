@@ -18,22 +18,40 @@
     //    header("Location: login.php");
     //}
 ?>
-<div class="container">
-    <h1 class="welcome">%Restoran adı% için rezervasyonlar</h1>
-    <div class="row">
-        <div class="col">
+
+    <div class="container">
+        <h1 class="welcome"><?php GetRestaurantInfo($_SESSION["restaurat_id"])["name"] ?>için rezervasyonlar</h1>
+        <div class="row">
+            <div class="col">
+
+
             <?php 
-            // Iterative olarak tarih için ASC olarak sırala ve yazdır
+            
+            $reservations=GetTableInfoWithAnyKey("reservation","restaurat_id",$_SESSION["restaurat_id"]);
+            
+                    
+                    <ol type="1">
+                    foreach ($reservations as $reservation){
+                        <li>$reservation["date"]</li>
+                    }
+                    </ol>
+                    
             ?>
             <div class="rezervasyon">
                 <span>%saat%</span>
                 <?php 
-                     $menuler=GetTableInfoWithAnyKey("menu","restaurat_id",$id);
-                     //RESTORAN İD Sİ EKLENECEK
+                     $menuler=GetTableInfoWithAnyKey("menu","restaurat_id",$_SESSION["restaurat_id"]);
+                     <ol type="1">
                      foreach($menuler as $menu){
-                        //print_r($menu);
-                        //MENULER BURADA
+                        print($menu[name]);
+                        print("\nİçerik:");
+                        <ul type="square">
+                        foreach(GetTableInfoWithAnyKey("contains","menu_id",$menu["id"]) as $contain){
+                            <li>(GetFoodInfo($contain["food_id"])["name"])</li>;
+                        }
+                        </ul>
                      }
+                     </ol>
                 ?>
                 <p class="menu">%menu adı% - <span>%sayı% adet</span></p>
             </div>
@@ -46,3 +64,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>    
 </body>
 </html>
+
