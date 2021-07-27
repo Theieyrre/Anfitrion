@@ -1,7 +1,7 @@
 <?php
         include 'insertWithJoins.php';
         function CreateRestourant ($Restourantname,$RestourantDescription,
-        $MasaSayisi,$MasaCapacity,$day,$open_time,$close_time){
+        $MasaSayisi,$MasaCapacity,$days,$open_time,$close_time){
             include 'connect.php';
             $restoourant_total_client=0;
             $myQuery = $db->prepare('INSERT INTO restaurant SET 
@@ -23,7 +23,9 @@
 
             
             $last_id = $db->lastInsertId();
-            CreateSchedule($last_id,$day,$open_time,$close_time);
+           foreach($days as $day){
+                CreateSchedule($last_id,$day,$open_time,$close_time);
+            }
             
             for($i=0;$i<$MasaSayisi;$i++){
                 CreateMesa ($last_id,0,$MasaCapacity);
