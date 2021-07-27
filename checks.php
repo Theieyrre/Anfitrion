@@ -25,7 +25,7 @@
         if(!$id){
             return 0;
         }
-        $is_host=GetTableInfoWithAnyKey("host","user_id",$id);
+        $is_host=GetTableInfoWithAnyKey("host","user_id",$id)["host_id"];
         if($is_host!=0&&$User_password==GetUserInfo($id)['password']){
             echo "Giris Basarili !";
             return $is_host;
@@ -39,13 +39,13 @@
         
         $id=GetUserID("$mail");
         
-        if(!$id){
+        if($id==0){
             return 0;
         }
-        $is_host=GetTableInfoWithAnyKey("client","user_id",$id);
-        if($is_host!=0&&$User_password==GetUserInfo($id)['password']){
+        $is_client=GetTableInfoWithAnyKey("client","user_id",$id)["client_id"];
+        if($is_client!=0&&$User_password==GetUserInfo($id)['password']){
             echo "Giris Basarili !";
-            return 1;
+            return $is_client;
         }
 
         echo "Girilen Sifre Yanlıstir!\n";
