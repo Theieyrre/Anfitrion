@@ -28,7 +28,7 @@
 
     }
     if(!$isopen){
-        echo "restoran belirtilen saatlerde acik degildir";
+        alert("restoran belirtilen saatlerde acik degildir");
         header("Location: /client/");
     }
     
@@ -127,7 +127,7 @@
              CreateReservation (GetRestaurantID($_POST["restaurant"]);
         }// reservasyon saatinde başka rezervasyon yoksa
         else{
-            echo "Bu saat dolu lütfen başka rezervasyon seçiniz";
+            alert("Bu saat dolu lütfen başka rezervasyon seçiniz");
             header("Location: reservation.php");
         }
         $_SESSION["client_id"],$_POST["number"],$_POST["note"],$has_participated1);
