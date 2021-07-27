@@ -21,7 +21,7 @@
     if(isset($_GET["id"])){
         
     }
-    $restoranBilgileri=GetRestaurantInfo(GetRestaurantID($_POST["name"]));//restoran name ile id bulunabilir
+    $restoranBilgileri=GetRestaurantInfo(GetRestaurantID($_POST["restaurant"]));//restoran name ile id bulunabilir
     if(restoranBilgileri)
     {
         $isopen=($restoranBilgileri["close_time"]>$_POST["hour"])&&($restoranBilgileri["open_time"]=<$_POST["hour"]);
@@ -29,6 +29,7 @@
     }
     if(!$isopen){
         echo "restoran belirtilen saatlerde acik degildir";
+        header("Location: /client/");
     }
     
     
@@ -46,7 +47,21 @@
                 <input type="time" name="hour" min="%restoran_min" max="%restoran_max" required>
                 <div id="menus" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <?php // Oluşturduğun menü kadar li de üret?>
+                    <?php 
+                    $menuler=GetTableInfoWithAnyKey("menu","restaurant_id",GetRestaurantID($_POST["restaurant"]));
+                    if($menuler){
+                        $_SESSION["menuler"]=$menuler;
+                    }
+                    else{
+                        echo"hiç menu yok";
+                        $_SESSION["menuler"]=0;
+                    }
+                    <ol type="1">
+                    foreach ($menuler as $menu){
+                        <li>$menu["name"]</li>
+                    }
+                    </ol>
+                    ?>
                     <li data-target="#menus" data-slide-to="0" class="active"></li>
                     <li data-target="#menus" data-slide-to="1"></li>
                 </ol>
@@ -58,26 +73,41 @@
                             </div>
                             <div class="menu-card-body">
                                 <?php // Gerektiği kadar kategori ile iterative aşağı kod sekmesini kullanarak menu oluştur?>
-                                <h5 class="menu-card-title">%foodcategori%</h5>
-                                <p class="menu-card-text">%foodaçıklama%</p>
+                                <h5 class="menu-card-title"><?php                               
+                                    echo GetFoodInfo(GetTableInfoWithAnyKey("contains","menu_id",$_SESSION["menuler"][0]["menu_id"])[0]["food_id"])["category"];
+                                    ?></h5>
+                                <p class="menu-card-text"><?php                               
+                                   echoGetFoodInfo(GetTableInfoWithAnyKey("contains","menu_id",$_SESSION["menuler"][0]["menu_id"])[0]["food_id"])["description"];
+                                    ?></p>
+                                
                                 <p class="label">Kaç kişi bu menüden alıcak ?</p>
                                 <input type="number" class="max_person" min="0" name="amount">
                             </div>
                         </div>
-                    <?php // Gerektiği kadar card div içerisini iterasyon ile üret ve doldur?>
-                    <div class="menu-card carousel-item">
-                            <div class="menu-card-header">
-                                Menü 1 
+                        <?php foreach($_SESSION["menuler"] as $menu ?>
+                         <tr>
+                            <div class="menu-card carousel-item">
+                                    <div class="menu-card-header">
+                                        Menü  
+                                    </div>
+                                    <div class="menu-card-body">
+                                        <?php // Gerektiği kadar kategori ile iterative aşağı kod sekmesini kullanarak menu oluştur
+                                        $_SESSION["foods"]=GetTableInfoWithAnyKey("contains","menu_id",$menu["menu_id"])?>
+                                        <?php foreach($_SESSION["foods"] as $food ?>
+                                        <h5 class="menu-card-title"><?php                               
+                                         echo GetFoodInfo($food["food_id"])["category"];
+                                    ?><</h5>
+                                        <p class="menu-card-text"><?php                               
+                                         echo GetFoodInfo($food["food_id"])["description"];
+                                    ?></p>
+                                        <p class="label">Kaç kişi bu menüden alıcak ?</p>
+                                        <input type="number" class="max_person" min="0" name="amount">
+                                        <?php endforeach; ?>
+                                    </div>
                             </div>
-                            <div class="menu-card-body">
-                                <?php // Gerektiği kadar kategori ile iterative aşağı kod sekmesini kullanarak menu oluştur?>
-                                <h5 class="menu-card-title">%foodcategori%</h5>
-                                <p class="menu-card-text">%foodaçıklama%</p>
-                                <p class="label">Kaç kişi bu menüden alıcak ?</p>
-                                <input type="number" class="max_person" min="0" name="amount">
-                            </div>
-                    </div>
-                </div>
+                        </div>
+                        </tr>
+                     <?php endforeach; ?>
                 <a class="carousel-control-prev" href="#menus" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
@@ -93,12 +123,18 @@
 <?php
     if(isset($_POST["login"])){
         $has_participated=0;//daha katılmadı
-        CreateReservation (GetRestaurantID($_POST["name"]),
-         $userid,$_POST["number"],$_POST["note"],$has_participated);
+        if(!GetTableInfoWithAnyKey("reservation","date",$_POST["hour"]) ){
+             CreateReservation (GetRestaurantID($_POST["restaurant"]);
+        }// reservasyon saatinde başka rezervasyon yoksa
+        else{
+            echo "Bu saat dolu lütfen başka rezervasyon seçiniz";
+            header("Location: reservation.php");
+        }
+        $_SESSION["client_id"],$_POST["number"],$_POST["note"],$has_participated1);
 
         // Giriş yapma işlemleri bura yazılacak  // bunlar zaten üye olanlara gözükmüyor mu?
         // Olmayan üye için registera yönlendir   // başta login ederse anca bu ekran gelsin bence
-        // Doğru giriş yapılırsa /client/ 'a yönledir
+        header("Location: ./client/");
     }
 ?>
 <footer>
