@@ -21,9 +21,11 @@
     }
 ?>
 <div class="container">
-    <h1 class="welcome">Hoşgeldiniz, %username%</h1>
-    <?php // if(rezervasyon yok) {
-    // Uygun php kod kontrolleri burada yapıp aşağıyı yüklemeye karar verdir ?>
+    <h1 class="welcome">Hoşgeldiniz, <?php print($_SESSION["username"]) ?></h1>
+    <?php  
+    $reservation=GetTableInfoWithAnyKey("reservation","client_id",$_SESSION["client_id"]))
+    if($reservation==0) {
+         ?>
     <div class="row">
         <div class="col-2">
             <form action="index.php" method="post">
@@ -33,7 +35,7 @@
                 <select name="category">
                     <?php 
                         // restoranların kategorisi yok ama
-                        
+
                         //GetAllRestaurantInfo();// KULLANARAK TÜM RESTORAN BİLGİLERİNİ FOREACH İLE ALABİLİRSİN
                         //GetRestaurantInfo($RestaurantID);// BUNUNLA İSE İD İLE RESTORAN ÇEKEBİLİRSİN 
                         //GetRestaurantInfo(GetRestaurantID($Name));// BUNUNLA İSE RESTORAN NAME İLE RESTORAN ÇEKEBİLİRSİN 
@@ -61,7 +63,6 @@
         <div class="col">
             <div class="restaurant">
                 <span>%restoran adı%</span>
-                <span>%restoran kategori%</span>
                 <span>%mevcut rezervasyon%</span>
                 <a href="reservation.php?id=%restaurant_id%">
                     <button type="button" class="btn btn-success">
@@ -71,7 +72,7 @@
             </div>
         </div>
     </div>
-    <?php //}else{ ?>
+    <?php }else{ ?>
         <div class="row">
         <div class="col-6">
             <h1 class="title">
@@ -79,22 +80,30 @@
             </h1>
             <div class="restaurant">
                 <form method="post">
-                    <span>%restoran adı%</span>
-                    <span>%restoran kategori%</span>
-                    <span>%saat%</span>
-                    <span>%kişi sayısı%</span>
+                    <span><?php echo GetRestaurantInfo($reservation["restaurant_id"])["name"]?></span>
+                    
+                    <span><?php echo $reservation["date"]?></span>
+                    <span><?php echo $reservation["person_count"]?></span>
                     <button type="button" class="btn btn-danger">İPTAL ET</button>
                 </form>
             </div>
         </div>
     </div>    
-    <?php //} ?>
+    <?php } ?>
 </div>
 
 <?php 
     //if(!isset($_SESSION["username"])){
     //    header("Location: login.php");
     //}
+    if (isset($_POST['button'])){
+        if($reservation!=0){
+            Delete("reservation","client_id",$_SESSION["client_id"]);
+        }
+        else{
+            header("Location: /client/reservation.php");
+         }
+    }
     if(isset($_POST["apply"])){
         // Filtre değerlerini burda okuyup uygun şekilde sayfayı reload et
         // Star rating için en son set edilen değer star değerini verir rating5 ise 5 yıldız seçmiştir mesela
