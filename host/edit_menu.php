@@ -87,9 +87,9 @@
 <?php
     if(isset($_POST["save"])){
         //MENUDE KATEGORİ ATTRİBUTE U YOK
-        Set("menu",$_GET["id"],"name",$_GET["name"]);
-        Set("menu",$_GET["id"],"name",$_GET["price"]);
-        Set("menu",$_GET["id"],"name",$_GET["is_available"]);
+        Set("menu",$_GET["id"],"name",$_POST["name"]);
+        Set("menu",$_GET["id"],"name",$_POST["price"]);
+        Set("menu",$_GET["id"],"name",$_POST["is_available"]);
         header("Location: index.php");
     }
 ?>

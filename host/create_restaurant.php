@@ -28,8 +28,8 @@
                 </h1>
                 <input type="text" name="name" placeholder="Restoranınızın adı" maxlength="30" required><br>
                 <textarea name="desc" rows="4" cols="50" maxlength="140">Restoranınızı kısaca açıklayınız</textarea><br>
-                <input type="text" name="masa_sayisi" placeholder="Masa sayısı" maxlength="30" required><br>
-                <input type="text" name="MasaCapacity" placeholder="Masaların kapasitesi" maxlength="30" required><br>
+                <input type="number" name="masa_sayisi" placeholder="Masa sayısı" maxlength="30" required><br>
+                <input type="number" name="MasaCapacity" placeholder="Masaların kapasitesi" maxlength="30" required><br>
                 <select name="days[]" multiple>
                 <?php 
                          <option value="monday">Pazartesş</option>
@@ -41,9 +41,9 @@
                        <option value="sunday">Pazar</option>                               
                     ?>
                 </select><br>
-                <input type="text" name="open_time" placeholder="Açılış saati" maxlength="30" required><br>
-                <input type="text" name="close_time" placeholder="Kapanış saati" maxlength="30" required><br>
-                //BURADA GİRİLEN SAAT DEĞERLERİNİN VALİD OLMASI GEREK 
+                <p>Açılış ve kapanış saatlerini giriniz</p>
+                <input type="time" name="open_time" required>
+                <input type="time" name="close_time" required>
                 <input type="submit" value="KAYDET" name="save">
             </form>
         </div>

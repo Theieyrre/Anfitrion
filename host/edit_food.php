@@ -61,12 +61,12 @@
 </div>
 <?php
     if(isset($_POST["save"])){
-        Set("food",$_GET["id"],"name",$_GET["name"]);
-        Set("food",$_GET["id"],"description",$_GET["desc"]);
-        Set("food",$_GET["id"],"cuisine",$_GET["cuisine"]);
-        Set("food",$_GET["id"],"category",$_GET["category"]);
-        Set("food",$_GET["id"],"price",$_GET["price"]);
-        Set("food",$_GET["id"],"is_available",$_GET["is_available"]);
+        Set("food",$_GET["id"],"name",$_POST["name"]);
+        Set("food",$_GET["id"],"description",$_POST["desc"]);
+        Set("food",$_GET["id"],"cuisine",$_POST["cuisine"]);
+        Set("food",$_GET["id"],"category",$_POST["category"]);
+        Set("food",$_GET["id"],"price",$_POST["price"]);
+        Set("food",$_GET["id"],"is_available",$_POST["is_available"]);
         header("Location: ./host/index.php"); 
     }
 ?>
