@@ -43,6 +43,7 @@
         if(GetUserID($_POST["email"])==0){
             $client_id=CreateClient ($_POST["email"],$_POST["phonenumber"],$_POST["password"],$_POST["firstname"],$_POST["lastname"] );
             $_SESSION["client_id"]=$client_id;
+            $_SESSION["username"]=$_POST["email"];
             header("Location: ./client/");
         }
         else{
