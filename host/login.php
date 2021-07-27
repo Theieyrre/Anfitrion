@@ -39,8 +39,10 @@
 </div>
 <?php
     if(isset($_POST["login"])){
-        if(checkUser($_POST["username"],$_POST["password"])){
+        $host_id=checkHost($_POST["username"],$_POST["password"])["host_id"];
+        if($host_id!=0){
             header("Location: ./host/"); 
+            $_SESSION["host_id"]=$host_id;
         }
         else{
             header("Location: ./host/registar.php"); 
