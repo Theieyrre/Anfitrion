@@ -41,8 +41,8 @@
                        <option value="sunday">Pazar</option>                               
                     ?>
                 </select><br>
-                <input type="text" name="open_time" placeholder="Açılış saati" maxlength="30" required><br>
-                <input type="text" name="close_time" placeholder="Kapanış saati" maxlength="30" required><br>
+                <input type="time" name="open_time" placeholder="Açılış saati" maxlength="30" required><br>
+                <input type="time" name="close_time" placeholder="Kapanış saati" maxlength="30" required><br>
                 
                 <input type="submit" value="KAYDET" name="save">
             </form>
