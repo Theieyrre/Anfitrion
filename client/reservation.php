@@ -18,21 +18,16 @@
     //if(!isset($_SESSION["username"])){
     //    header("Location: /client/login.php");
     //}
-    if(isset($_GET["id"])){
-        
-    }
     $restoranBilgileri=GetRestaurantInfo(GetRestaurantID($_POST["restaurant"]));//restoran name ile id bulunabilir
-    if(restoranBilgileri)
+    if($restoranBilgileri)
     {
-        $isopen=($restoranBilgileri["close_time"]>$_POST["hour"])&&($restoranBilgileri["open_time"]=<$_POST["hour"]);
+        $isopen=($restoranBilgileri["close_time"]>$_POST["hour"])&&($restoranBilgileri["open_time"]<=$_POST["hour"]);
 
     }
     if(!$isopen){
         alert("restoran belirtilen saatlerde acik degildir");
         header("Location: /client/");
-    }
-    
-    
+    }    
 ?>
 
 <div class="row d-flex justify-content-center">
@@ -55,7 +50,7 @@
                     else{
                         echo"hiç menu yok";
                         $_SESSION["menuler"]=0;
-                    }
+                    }?>
                     <ol type="1">
                     foreach ($menuler as $menu){
                         <li>$menu["name"]</li>
@@ -77,14 +72,14 @@
                                     echo GetFoodInfo(GetTableInfoWithAnyKey("contains","menu_id",$_SESSION["menuler"][0]["menu_id"])[0]["food_id"])["category"];
                                     ?></h5>
                                 <p class="menu-card-text"><?php                               
-                                   echoGetFoodInfo(GetTableInfoWithAnyKey("contains","menu_id",$_SESSION["menuler"][0]["menu_id"])[0]["food_id"])["description"];
+                                   echo GetFoodInfo(GetTableInfoWithAnyKey("contains","menu_id",$_SESSION["menuler"][0]["menu_id"])[0]["food_id"])["description"];
                                     ?></p>
                                 
                                 <p class="label">Kaç kişi bu menüden alıcak ?</p>
                                 <input type="number" class="max_person" min="0" name="amount">
                             </div>
                         </div>
-                        <?php foreach($_SESSION["menuler"] as $menu ?>
+                        <?php foreach($_SESSION["menuler"] as $menu){ ?>
                          <tr>
                             <div class="menu-card carousel-item">
                                     <div class="menu-card-header">
@@ -93,7 +88,7 @@
                                     <div class="menu-card-body">
                                         <?php // Gerektiği kadar kategori ile iterative aşağı kod sekmesini kullanarak menu oluştur
                                         $_SESSION["foods"]=GetTableInfoWithAnyKey("contains","menu_id",$menu["menu_id"])?>
-                                        <?php foreach($_SESSION["foods"] as $food ?>
+                                        <?php foreach($_SESSION["foods"] as $food){ ?>
                                         <h5 class="menu-card-title"><?php                               
                                          echo GetFoodInfo($food["food_id"])["category"];
                                     ?><</h5>
@@ -102,12 +97,24 @@
                                     ?></p>
                                         <p class="label">Kaç kişi bu menüden alıcak ?</p>
                                         <input type="number" class="max_person" min="0" name="amount">
-                                        <?php endforeach; ?>
+                                        <?php } ?>
                                     </div>
                             </div>
                         </div>
                         </tr>
-                     <?php endforeach; ?>
+                     <?php } ?>
+                <div class="stars">
+                    <input type="radio" name="rating" id="rating1">
+                    <label for="rating1" class="fas fa-star"></label>
+                    <input type="radio" name="rating" id="rating2">
+                    <label for="rating2" class="fas fa-star"></label>
+                    <input type="radio" name="rating" id="rating3">
+                    <label for="rating3" class="fas fa-star"></label>
+                    <input type="radio" name="rating" id="rating4">
+                    <label for="rating4" class="fas fa-star"></label>
+                    <input type="radio" name="rating" id="rating5">
+                    <label for="rating5" class="fas fa-star"></label>
+                </div>
                 <a class="carousel-control-prev" href="#menus" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
@@ -124,13 +131,13 @@
     if(isset($_POST["login"])){
         $has_participated=0;//daha katılmadı
         if(!GetTableInfoWithAnyKey("reservation","date",$_POST["hour"]) ){
-             CreateReservation (GetRestaurantID($_POST["restaurant"]);
+             //CreateReservation (GetRestaurantID($_POST["restaurant"]));
         }// reservasyon saatinde başka rezervasyon yoksa
         else{
             alert("Bu saat dolu lütfen başka rezervasyon seçiniz");
             header("Location: reservation.php");
         }
-        $_SESSION["client_id"],$_POST["number"],$_POST["note"],$has_participated1);
+        //$_SESSION["client_id"],$_POST["number"],$_POST["note"],$has_participated1);
 
         // Giriş yapma işlemleri bura yazılacak  // bunlar zaten üye olanlara gözükmüyor mu?
         // Olmayan üye için registera yönlendir   // başta login ederse anca bu ekran gelsin bence
