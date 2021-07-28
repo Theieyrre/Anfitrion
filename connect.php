@@ -1,10 +1,8 @@
 <?php
-    // Database credentialları ile bağlanıp açabilirsin phpmyadmin yerine
-    // HeidiSQL kullanıyorum ben
-    $servername = getenv("CLEARDB_DATABASE_URL");
-    $username = getenv("USERNAME");
-    $password = getenv("PASSWORD");;
-    $dbname = getenv("DATABASE_NAME");
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "heroku_e675e2ad822cd22";
     try {      
         $db = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);       
     } catch (PDOException $e){     

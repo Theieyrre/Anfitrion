@@ -17,13 +17,13 @@
     include '../db.php';
     session_start();
     if(!isset($_SESSION["username"])){
-        header("Location: /client/login.php");
+        header("Location: ../client/login.php");
     }
 ?>
 <div class="container">
     <h1 class="welcome">Hoşgeldiniz, <?php print($_SESSION["username"]) ?></h1>
     <?php  
-    $reservation=GetTableInfoWithAnyKey("reservation","client_id",$_SESSION["client_id"]))
+    $reservation=GetTableInfoWithAnyKey("reservation","client_id",$_SESSION["client_id"]);
     if($reservation==0) {
          ?>
     <div class="row">

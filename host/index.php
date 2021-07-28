@@ -14,9 +14,9 @@
 <?php 
     include '../db.php';
     session_start();
-    //if(!isset($_SESSION["username"])){
-    //    header("Location: login.php");
-    //}
+    if(!isset($_SESSION["username"])){
+        header("Location: login.php");
+    }
 ?>
 
     <div class="container">
@@ -29,30 +29,27 @@
             
             $reservations=GetTableInfoWithAnyKey("reservation","restaurat_id",$_SESSION["restaurat_id"]);
             
-                    
-                    <ol type="1">
+            ?>        
+                    <ol type="1"><?php
                     foreach ($reservations as $reservation){
-                        <li>$reservation["date"]</li>
+                        ?><li>$reservation["date"]</li><?php
                     }
-                    </ol>
-                    
-            ?>
+                    ?></ol>
             <div class="rezervasyon">
                 <span>%saat%</span>
                 <?php 
                      $menuler=GetTableInfoWithAnyKey("menu","restaurat_id",$_SESSION["restaurat_id"]);
-                     <ol type="1">
+                     ?><ol type="1"><?php
                      foreach($menuler as $menu){
-                        print($menu[name]);
+                        print($menu["name"]);
                         print("\nİçerik:");
-                        <ul type="square">
+                        ?><ul type="square"><?php
                         foreach(GetTableInfoWithAnyKey("contains","menu_id",$menu["id"]) as $contain){
-                            <li>(GetFoodInfo($contain["food_id"])["name"])</li>;
-                        }
+                            ?><li><?php (GetFoodInfo($contain["food_id"])["name"]); ?></li>
+                        <?php } ?>
                         </ul>
-                     }
+                    <?php } ?>
                      </ol>
-                ?>
                 <p class="menu">%menu adı% - <span>%sayı% adet</span></p>
             </div>
         </div>
