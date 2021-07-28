@@ -25,7 +25,7 @@
 
     }
     if(!$isopen){
-        alert("restoran belirtilen saatlerde acik degildir");
+        echo "<script type='text/javascript'>alert('Restoran belirtilen saatlerde acik degildir');</script>";
         header("Location: /client/");
     }    
 ?>
@@ -134,7 +134,7 @@
              //CreateReservation (GetRestaurantID($_POST["restaurant"]));
         }// reservasyon saatinde başka rezervasyon yoksa
         else{
-            alert("Bu saat dolu lütfen başka rezervasyon seçiniz");
+            echo "<script type='text/javascript'>alert('Bu saat dolu lütfen başka rezervasyon seçiniz');</script>";
             header("Location: reservation.php");
         }
         //$_SESSION["client_id"],$_POST["number"],$_POST["note"],$has_participated1);
