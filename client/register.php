@@ -49,6 +49,7 @@
             header("Location: rezervation.php");
         }
         else{
+             echo "<script type='text/javascript'>alert(Böyle bir kullanıcı zaten var lütfen giriş yapınız');</script>";
             header("Location: login.php");
           
         }  
