@@ -46,7 +46,8 @@
             $_SESSION["username"]=$_POST["username"];
         }
         else{
-            header("Location: ./client/register.php");
+            alert("Böyle bir kullanıcı bulunamadı lütfen kayıt olunuz");
+            header("Location: register.php");
         }
     }
 ?>
