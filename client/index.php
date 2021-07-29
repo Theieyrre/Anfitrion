@@ -21,7 +21,7 @@
     }
 ?>
 <div class="container">
-    <h1 class="welcome">Hoşgeldiniz, <?php print($_SESSION["username"]) ?></h1>
+    <h1 class="welcome">Hoşgeldiniz, <?php echo ($_SESSION["firstname"]." ".$_SESSION["lastname"]) ?></h1>
     <?php  
     $reservation=GetTableInfoWithAnyKey("reservation","client_id",$_SESSION["client_id"]);
     if($reservation==0) {
