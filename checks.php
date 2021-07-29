@@ -43,6 +43,9 @@
             return 0;
         }
         $is_client=GetTableInfoWithAnyKey("client","user_id",$id)["client_id"];
+        echo $is_client;
+        echo "\n user pass:".$User_password;
+        echo "\n kayıtlı pass:".GetUserInfo($id)['password'];
         if($is_client!=0&&$User_password==GetUserInfo($id)['password']){
             echo "Giris Basarili !";
             return $is_client;
