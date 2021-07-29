@@ -101,7 +101,7 @@
             Delete("reservation","client_id",$_SESSION["client_id"]);
         }
         else{
-            header("Location: /client/reservation.php");
+            header("Location: reservation.php");
          }
     }
     if(isset($_POST["apply"])){
