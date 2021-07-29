@@ -1,8 +1,8 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "heroku_e675e2ad822cd22";
+    $servername = getenv("CLEARDB_DATABASE_URL");
+    $username = getenv("USERNAME");
+    $password = getenv("PASSWORD");;
+    $dbname = getenv("DATABASE_NAME");
     try {      
         $db = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);       
     } catch (PDOException $e){     
