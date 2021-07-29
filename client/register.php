@@ -46,10 +46,10 @@
             $_SESSION["username"]=$_POST["email"];
             $_SESSION["firstname"]=$_POST["firstname"];
             $_SESSION["lastname"]=$_POST["lastname"];
-            header("Location: ./client/");
+            header("Location: rezervation.php");
         }
         else{
-            header("Location: ./client/login.php");
+            header("Location: login.php");
           
         }  
         
