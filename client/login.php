@@ -46,7 +46,8 @@
             $_SESSION["username"]=$_POST["username"];
         }
         else{
-            alert("Böyle bir kullanıcı bulunamadı lütfen kayıt olunuz");
+            echo "<script type='text/javascript'>alert(Böyle bir kullanıcı bulunamadı lütfen kayıt olunuz');</script>";
+            
             header("Location: register.php");
         }
     }
