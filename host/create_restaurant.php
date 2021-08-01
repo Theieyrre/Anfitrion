@@ -58,9 +58,8 @@ $restaurant_name=
         $restaurant_id=CreateRestourant ($_POST["name"],$_POST["desc"],$_POST["masa_sayisi"],$_POST["MasaCapacity"],$_POST["days[]"];
         $_SESSION["restaurant_id"]=$restaurant_id;
         $_POST["open_time"],$_POST["close_time"]);
-        $host_id=CreateHost($_SESSION["user_id"],$restaurant_id,$_POST["name"]);
-        $_SESSION["host_id"]=$host_id;
-        header("Location: ./host/add_food.php");
+        Set("host","$_SESSION["user_id"]","restaurant_id", $restaurant_id);
+        header("Location: add_food.php");
     }
 ?>
 <footer>
