@@ -31,7 +31,7 @@
                 <input type="text" name="firstname" placeholder="Adınız" maxlength="20" required><br>
                 <input type="text" name="lastname" placeholder="Soyadınız" maxlength="20" required><br>
                 <input type="text" name="email" placeholder="Emailiniz" maxlength="30" required><br>
-                <input type="tel" name="phonenumber" placeholder="Telefon Numaranız" pattern="[0-9]{4}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required><br>
+                <input type="tel" name="phonenumber" placeholder="Telefon Numaranız" pattern="[0]?[5][0-9]{9}" required><br>
                 <input type="password" name="password" placeholder="Şifre" autocomplete="new-password" required><br>
                 <input type="submit" value="GİRİŞ" name="signup">
             </form>
