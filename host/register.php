@@ -44,10 +44,10 @@
             $userid=CreateUser ($_POST["email"],$_POST["phonenumber"],$_POST["password"],$_POST["firstname"],$_POST["lastname"] );
             $_SESSION["user_id"]=$userid;
              $_SESSION["username"]=$_POST["email"];
-            header("Location: ./host/create_restaurant.php");
+            header("Location: create_restaurant.php");
         }
         else{
-            header("Location: ./host/login.php");
+            header("Location: login.php");
         }        
         
     }
