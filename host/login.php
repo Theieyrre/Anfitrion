@@ -41,7 +41,7 @@
     if(isset($_POST["login"])){
         $host_id=checkHost($_POST["username"],$_POST["password"])["host_id"];
         if($host_id!=0){
-            header("Location: /host/"); 
+            header("Location: ./host/"); 
             $_SESSION["host_id"]=$host_id;
              $_SESSION["username"]=$_POST["username"];
         }
