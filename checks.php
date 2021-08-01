@@ -25,10 +25,10 @@
         if(!$id){
             return 0;
         }
-        $is_host=GetTableInfoWithAnyKey("host","user_id",$id)["host_id"];
-        if($is_host!=0&&$User_password==GetUserInfo($id)['password']){
+        //$is_host=GetTableInfoWithAnyKey("user","user_id",$id)["host_id"];
+        if($User_password==GetUserInfo($id)['password']){
             echo "Giris Basarili !";
-            return $is_host;
+            return $id;
         }
 
         echo "Girilen Sifre Yanlıstir!\n";
