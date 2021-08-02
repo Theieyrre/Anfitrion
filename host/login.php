@@ -39,7 +39,7 @@
 </div>
 <?php
     if(isset($_POST["login"])){
-        $host_id=checkHost($_POST["username"],$_POST["password"])["host_id"];
+        $host_id=checkHost($_POST["username"],$_POST["password"]);
         if($host_id!=0){
             
             $_SESSION["host_id"]=$host_id;
