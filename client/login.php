@@ -44,7 +44,7 @@
             
             $_SESSION["client_id"]=$client_id;
             $_SESSION["username"]=$_POST["username"];
-            header("Location: ./client/");
+            header("Location: /client/");
         }
         else{
             echo "<script type='text/javascript'>alert(Böyle bir kullanıcı bulunamadı lütfen kayıt olunuz');</script>";
