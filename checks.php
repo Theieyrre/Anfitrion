@@ -42,14 +42,12 @@
         if($id==0){
             return 0;
         }
-        $is_client=GetTableInfoWithAnyKey("client","user_id",$id)["client_id"];
+        //$is_client=GetTableInfoWithAnyKey("client","user_id",$id)["client_id"];
         
-        if(!$is_client){
-            echo $is_client;    
-        }
+        
         if($User_password==GetUserInfo($id)['password']){
             echo "Giris Basarili !";
-            return $is_client;
+            return $id;
         }
 
         echo "Girilen Sifre Yanlıstir!\n";
