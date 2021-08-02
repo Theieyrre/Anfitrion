@@ -28,7 +28,7 @@
                 <h2 class="form--header">
                     Giriş bilgilerinizi doldurunuz
                 </h2>
-                <input type="text" name="username" placeholder="Email/Telefon" maxlength="30" required><br>
+                <input type="text" name="username" placeholder="Email" maxlength="30" required><br>
                 <input type="password" name="password" placeholder="Şifre" autocomplete="new-password" required><br>
                 <p class="label">Henüz üye değil misiniz ? </p>
                 <a href="register.php">Üye olmak için tıklayın</a><br>
@@ -41,9 +41,10 @@
     if(isset($_POST["login"])){
         $client_id=checkClient($_POST["username"],$_POST["password"]);
         if($client_id!=0){
-            header("Location: ./client/");
+            
             $_SESSION["client_id"]=$client_id;
             $_SESSION["username"]=$_POST["username"];
+            header("Location: ./client/");
         }
         else{
             echo "<script type='text/javascript'>alert(Böyle bir kullanıcı bulunamadı lütfen kayıt olunuz');</script>";
