@@ -46,11 +46,11 @@
             $_SESSION["username"]=$_POST["email"];
             $_SESSION["firstname"]=$_POST["firstname"];
             $_SESSION["lastname"]=$_POST["lastname"];
-            header("Location: rezervation.php");
+            header("Location: /client/");
         }
         else{
              echo "<script type='text/javascript'>alert(Böyle bir kullanıcı zaten var lütfen giriş yapınız');</script>";
-            header("Location: login.php");
+           header("Location: login.php");
           
         }  
         
