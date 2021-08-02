@@ -82,6 +82,7 @@
                  return 0;
              } 
              $last_id = $db->lastInsertId();
+             Set("client",$client_id,"rezervation_id",$last_id);
              return $last_id; 
             }
 
