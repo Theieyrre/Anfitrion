@@ -26,6 +26,10 @@
             return 0;
         }
         $is_host=GetTableInfoWithAnyKey("host","user_id",$id)["host_id"];
+        if(!$is_host){
+            echo "host bulunamadı!";
+            return 0;
+        }
         if($User_password==GetUserInfo($id)["password"]){
             echo "Giris Basarili !";
             return $is_host;
@@ -43,7 +47,10 @@
             return 0;
         }
         $is_client=GetTableInfoWithAnyKey("client","user_id",$id)["client_id"];
-        
+        if(!$is_client){
+            echo "client bulunamadı!";
+            return 0;
+        }
         
         if($User_password==GetUserInfo($id)["password"]){
             echo "Giris Basarili !";
