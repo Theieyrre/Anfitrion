@@ -32,10 +32,10 @@
                 <input type="number" name="MasaCapacity" placeholder="Masaların kapasitesi" maxlength="30" required><br>
                 <select name="days[]" multiple>
                 <?php 
-                         <option value="monday">Pazartesş</option>
-                       <option value="tuesday">Salı</option>
-                       <option value="wednesday">Çarşamba</option>
-                       <option value="thursday">Perşembe</option>
+                         <option value="monday">Pazartesi</option>
+                       <option value="tuesday">Sali</option>
+                       <option value="wednesday">Carsamba</option>
+                       <option value="thursday">Persembe</option>
                        <option value="friday">Cuma</option>
                        <option value="saturday">Cumartesi</option>
                        <option value="sunday">Pazar</option>                               
