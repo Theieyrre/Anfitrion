@@ -9,7 +9,7 @@
             return 0;
         }
        
-        if($User_password==GetUserInfo($id)['password']){
+        if($User_password==GetUserInfo($id)["password"]){
             echo "Giris Basarili !";
             return 1;
         }
@@ -26,7 +26,7 @@
             return 0;
         }
         $is_host=GetTableInfoWithAnyKey("host","user_id",$id)["host_id"];
-        if($is_host!=0&&$User_password==GetUserInfo($id)['password']){
+        if($is_host!=0&&$User_password==GetUserInfo($id)["password"]){
             echo "Giris Basarili !";
             return $is_host;
         }
@@ -45,7 +45,7 @@
         $is_client=GetTableInfoWithAnyKey("client","user_id",$id)["client_id"];
         
         
-        if($is_client!=0&&$User_password==GetUserInfo($id)['password']){
+        if($is_client!=0&&$User_password==GetUserInfo($id)["password"]){
             echo "Giris Basarili !";
             return  $is_client;
         }
