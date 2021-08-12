@@ -40,7 +40,7 @@
 <?php
     if(isset($_POST["login"])){
         $host_id=checkHost($_POST["username"],$_POST["password"]);
-        if($host_id!=0){
+        if(!$host_id){
             
             $_SESSION["host_id"]=$host_id;
              $_SESSION["username"]=$_POST["username"];
