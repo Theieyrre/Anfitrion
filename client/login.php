@@ -40,7 +40,7 @@
 <?php
     if(isset($_POST["login"])){
         $client_id=checkClient($_POST["username"],$_POST["password"]);
-        if($client_id!=0){
+        if(!$client_id!=0){
             
             $_SESSION["client_id"]=$client_id;
             $_SESSION["username"]=$_POST["username"];
