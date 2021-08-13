@@ -20,6 +20,18 @@
 ?>
 
     <div class="container">
+        <div class="nav_buttons">
+            <a href="postbox.php">
+                <button>
+                <i class="fas fa-envelope fa-2x"></i>
+                </button>
+            </a>
+            <a href="../logout.php">
+                <button>
+                <i class="fas fa-door-open fa-2x"></i>
+                </button>
+            </a>
+        </div>
         <h1 class="welcome"><?php GetRestaurantInfo($_SESSION["restaurat_id"])["name"] ?>için rezervasyonlar</h1>
         <div class="row">
             <div class="col">

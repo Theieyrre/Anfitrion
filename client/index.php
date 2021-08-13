@@ -21,6 +21,18 @@
     }
 ?>
 <div class="container">
+    <div class="nav_buttons">
+        <a href="postbox.php">
+            <button>
+            <i class="fas fa-envelope fa-2x"></i>
+            </button>
+        </a>
+        <a href="../logout.php">
+            <button>
+            <i class="fas fa-door-open fa-2x"></i>
+            </button>
+        </a>
+    </div>
     <h1 class="welcome">Hoşgeldiniz, <?php echo ($_SESSION["firstname"]." ".$_SESSION["lastname"]) ?></h1>
     <?php  
     $reservation=GetTableInfoWithAnyKey("reservation","client_id",$_SESSION["client_id"]);
