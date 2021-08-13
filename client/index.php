@@ -54,10 +54,7 @@
 
                         // Restoran kategorilerini çekip burda option içerisine listele
                     ?>
-                    
-                    <option value="kategori adi">kategori adi </option>
-                     
-                    
+                   <option value="%kategori_adı%">%kategori adı%</option>
                 </select>
                 <p class="label">Restoran minimum yıldız değeri seçiniz</p>
                 <div class="stars">
