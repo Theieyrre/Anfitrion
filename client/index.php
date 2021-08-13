@@ -54,13 +54,9 @@
 
                         // Restoran kategorilerini çekip burda option içerisine listele
                     ?>
-                     <?php 
-                         foreach ($Restorants){
-                     ?>
-                    <option value=" <?php $Restorants["name"]?>"> <?php $Restorants["name"]?></option>
-                     <?php 
-                         }
-                     ?>
+                    
+                    <option value="kategori adi">kategori adi </option>
+                     
                     
                 </select>
                 <p class="label">Restoran minimum yıldız değeri seçiniz</p>
