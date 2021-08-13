@@ -57,14 +57,11 @@
                      <?php 
                          foreach ($Restorants){
                      ?>
-                    <option value="$Restorants["name"]">$Restorants["name"]</option>
+                    <option value=" <?php $Restorants["name"]?>"> <?php $Restorants["name"]?></option>
                      <?php 
                          }
                      ?>
-                    <option value="%kategori_adı%">%kategori adı%</option>
-                    <option value="%kategori_adı%">%kategori adı%</option>
-                    <option value="%kategori_adı%">%kategori adı%</option>
-                    <option value="%kategori_adı%">%kategori adı%</option>
+                    
                 </select>
                 <p class="label">Restoran minimum yıldız değeri seçiniz</p>
                 <div class="stars">
