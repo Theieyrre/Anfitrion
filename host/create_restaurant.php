@@ -31,7 +31,7 @@
                 <input type="number" name="masa_sayisi" placeholder="Masa sayısı" maxlength="30" required><br>
                 <input type="number" name="MasaCapacity" placeholder="Masaların kapasitesi" maxlength="30" required><br>
                 <select name="days[]" multiple>
-                <?php 
+             
                          <option value="monday">Pazartesi</option>
                        <option value="tuesday">Sali</option>
                        <option value="wednesday">Carsamba</option>
@@ -39,7 +39,7 @@
                        <option value="friday">Cuma</option>
                        <option value="saturday">Cumartesi</option>
                        <option value="sunday">Pazar</option>                               
-                    ?>
+              
                 </select><br>
                 <p>Açılış ve kapanış saatlerini giriniz</p>
                 <input type="time" name="open_time" required>
