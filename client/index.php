@@ -47,13 +47,23 @@
                 <select name="category">
                     <?php 
                         // restoranların kategorisi yok ama
-
+                        $Restorants=GetAllRestaurants();
                         //GetAllRestaurantInfo();// KULLANARAK TÜM RESTORAN BİLGİLERİNİ FOREACH İLE ALABİLİRSİN
                         //GetRestaurantInfo($RestaurantID);// BUNUNLA İSE İD İLE RESTORAN ÇEKEBİLİRSİN 
                         //GetRestaurantInfo(GetRestaurantID($Name));// BUNUNLA İSE RESTORAN NAME İLE RESTORAN ÇEKEBİLİRSİN 
 
                         // Restoran kategorilerini çekip burda option içerisine listele
                     ?>
+                     <?php 
+                         foreach ($Restorants){
+                     ?>
+                    <option value="$Restorants["name"]">$Restorants["name"]</option>
+                     <?php 
+                         }
+                     ?>
+                    <option value="%kategori_adı%">%kategori adı%</option>
+                    <option value="%kategori_adı%">%kategori adı%</option>
+                    <option value="%kategori_adı%">%kategori adı%</option>
                     <option value="%kategori_adı%">%kategori adı%</option>
                 </select>
                 <p class="label">Restoran minimum yıldız değeri seçiniz</p>
