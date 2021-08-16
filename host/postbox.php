@@ -18,7 +18,9 @@
     if(isset($_SESSION["username"])){
         header("Location: /host/");
     }
-    // SELECT all responses
+     $postid=GetTableInfo("user",$_SESSION["user_id"])["postbox_id"];
+   print_r( GetTableInfo("postbox",$postid));//GET ALL RESPONSES
+    GetTableInfo("postbox",$postid)["read"]=1;// SELECT all responses
     // UPDATE all responses read=true
 ?>
 <div class="container">
@@ -30,7 +32,9 @@
                     Restoranınıza yapılan yorumlar
                 </h1>
                 <?php 
-                    // User tüm commentlar için responselar
+                     $postid=GetTableInfo("user",$_SESSION["user_id"])["postbox_id"];
+                      print_r( GetTableInfo("postbox",$postid));//GET ALL RESPONSES
+                      GetTableInfo("postbox",$postid)["read"]=1;// User tüm commentlar için responselar
                     // okunmadı olanlar gelsin sayfa yüklenince hepsini okundu olarak update et
                 ?>
                 <h2 class="form--header">%kullanıcı adı%</h2>
