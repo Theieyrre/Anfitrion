@@ -41,7 +41,8 @@
 <?php
     if(isset($_POST["signup"])){
         if(GetUserID($_POST["email"])==0){
-            $userid=CreateUser ($_POST["email"],$_POST["phonenumber"],$_POST["password"],$_POST["firstname"],$_POST["lastname"] );
+            $postbid=CreatePostBox("");
+            $userid=CreateUser ($postbid,$_POST["email"],$_POST["phonenumber"],$_POST["password"],$_POST["firstname"],$_POST["lastname"] );
             $_SESSION["user_id"]=$userid;
             $_SESSION["username"]=$_POST["email"];
             $host_id= CreateHost($userid,0,"");
