@@ -47,7 +47,7 @@
             $_SESSION["username"]=$_POST["username"];
         }
         else{
-            header("Location: ./host/register.php"); 
+            header("Location: ../host/register.php"); 
         }
         
     }
