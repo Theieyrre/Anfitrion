@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" integrity="sha512-OdEXQYCOldjqUEsuMKsZRj93Ht23QRlhIb8E/X0sbwZhme8eUw6g8q7AdxGJKakcBbv7+/PX0Gc2btf7Ru8cZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="../images/Anfitrion-main.png" type="image/png">
     <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/form.css">
-    <link rel="stylesheet" href="../styles/postbox.css">
+    <link rel="stylesheet" href="../styles/old_res.css">
     <title>Anfitrión - Online Restoran Rezervasyon</title>
 </head>
 <body>
@@ -18,39 +17,38 @@
     if(isset($_SESSION["username"])){
         header("Location: /host/");
     }
-    // SELECT all responses
-    // UPDATE all responses read=true
 ?>
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-10">
-            <form method="post" autocomplete="off" >
-                <?php //TEMPLATE ?>
-                <h1 class="form--header">
-                    Restoranınıza yapılan yorumlar
-                </h1>
-                <?php 
-                    // User tüm commentlar için responselar
-                    // okunmadı olanlar gelsin sayfa yüklenince hepsini okundu olarak update et
-                ?>
-                <h2 class="form--header">%kullanıcı adı%</h2>
-                <p class="label">%tarih%</p>
-                <?php // yıldız sayısı kadar for ile i elementi yazdır ?>
-                <i class="fas fa-star fa-2x"></i>
-                <p>%metin%</p>
-                <button type="submit" name="remove" placeholder="">YORUMU SİL</input>
-            </form>
+        <?php //TEMPLATE ?>
+        <div class="res">
+            <h1>
+                Önceki rezervasyonlarınız
+            </h1>
+            <span>%tarih%</span>
+            <span>%müşteri adı%</span>
+            <span>%toplam fiyat%</span>
+            <br>
+            <div class="menu-card">
+                <div class="menu-card-header">
+                Menü  
+                </div>
+                <div class="menu-card-body">
+                    <h5 class="menu-card-title"></h5>
+                    <p class="menu-card-text">
+                    <p class="label">%kişi sayısı%</p>
+                </div>
+            </div>
+            <br>
+            <?php //yıldız sayısı kadar basılacak ?>
+            <i class="fas fa-star fa-2x"></i>
+            <p>%yapılan yorum%</p>
         </div>
     </div>
 </div>
-<?php
-    if(isset($_POST["remove"])){ 
-        // postboxdan sil
-        header("Location: register.php");
-    }
-?>
 <footer>
-<a href='https://www.freepik.com/photos/business'>Business photo created by creativeart - www.freepik.com</a>
+<a href='https://www.freepik.com/photos/business'>Business photo created by freepik - www.freepik.com</a>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>    
 </body>

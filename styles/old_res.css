@@ -1,0 +1,38 @@
+body { 
+    background: url(../images/front-view-barista-cleaning-table.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.container {
+    background-color: #e49144b4;
+    padding: 1rem;
+}
+
+h1 {
+    font-family: "Bad Script";
+    font-size: 3rem;
+    color: #884200;
+}
+
+h2 {
+    font-family: "Viaoda Libre";
+    font-size: 1.5rem;
+    color: #86501e;
+}
+
+.res .menu-card{
+    padding: 1rem;
+    border-radius: 2rem;
+    background-color: #c5b09cab;
+    text-align: center;
+    display: inline-block;
+}
+
+.res .menu-card .menu-card-header{
+    font-family: "Bad Script";
+    font-size: 2rem;
+    color: #aa7d2b;
+}
