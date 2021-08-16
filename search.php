@@ -10,6 +10,17 @@
         }
         return $knowlegde;
     }
+    function GetAllTableInfo($TableName){
+        include 'connect.php';
+        
+            $knowlegde = $db->query("SELECT * FROM $TableName")->fetchAll(PDO::FETCH_ASSOC);
+
+        if(!$knowlegde){
+            echo ("Bu id ile kayıtlı $TableName bulunmamaktadir");
+            return 0;
+        }
+        return $knowlegde;
+    }
     function GetTableInfoWithAnyKey($TableName,$identifier,$id){
         include 'connect.php';
             $knowlegde = $db->query("SELECT * FROM $TableName WHERE $TableName.$identifier=$id")->fetchAll(PDO::FETCH_ASSOC);
