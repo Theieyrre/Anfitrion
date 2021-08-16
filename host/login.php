@@ -39,19 +39,16 @@
 </div>
 <?php
     if(isset($_POST["login"])){
+        
         $host_id=checkHost($_POST["username"],$_POST["password"]);
-        if($host_id){
-            
-            $_SESSION["host_id"]=$host_id;
-             $_SESSION["username"]=$_POST["username"];
-            header("Location: /host/"); 
+        if(!$host_id){
+            header("Location: ./host/"); 
+            $_SESSION["host_id"]=$host_id["host_id"];
+            $_SESSION["username"]=$_POST["username"];
         }
         else{
-            alert("Kayıtlı kullanıcı bulunamadı lütfen kayıt olunuz.");
-            header("Location: registar.php"); 
+            header("Location: ./host/registar.php"); 
         }
-        
-        
         
     }
 ?>
