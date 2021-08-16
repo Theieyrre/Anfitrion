@@ -42,12 +42,12 @@
         
         $host_id=checkHost($_POST["username"],$_POST["password"]);
         if($host_id){
-            header("Location: ./host/"); 
+            header("Location ../host/ "); 
             $_SESSION["host_id"]=$host_id["host_id"];
             $_SESSION["username"]=$_POST["username"];
         }
         else{
-            header("Location: ./host/registar.php"); 
+            header("Location: ./host/register.php"); 
         }
         
     }
