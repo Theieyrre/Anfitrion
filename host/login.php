@@ -39,19 +39,26 @@
 </div>
 <?php
     if(isset($_POST["login"])){
-        $host_id=checkHost($_POST["username"],$_POST["password"]);
-        if($host_id){
-            
-            $_SESSION["host_id"]=$host_id;
-             $_SESSION["username"]=$_POST["username"];
-            header("Location: /host/"); 
-        }
-        else{
-            alert("Kayıtlı kullanıcı bulunamadı lütfen kayıt olunuz.");
+        $usr_id=GetUserID("$_POST["username"]");
+     
+        if(!$usr_id){
             header("Location: registar.php"); 
         }
-        
-        
+        $is_host=GetTableInfoWithAnyKey("host","user_id",$usr_id)["host_id"];
+        if(!$is_host){
+            echo "host bulunamadı!";
+            header("Location: registar.php"); 
+        }
+        if($_POST["password"]==GetUserInfo($usr_id)["password"]){
+            echo "Giris Basarili !";
+            $_SESSION["host_id"]=$is_host;
+            $_SESSION["username"]=$_POST["username"];
+            header("Location: /host/");
+        }
+         else{
+            alert("Kayıtlı kullanıcı bulunamadı lütfen kayıt olunuz.");
+            header("Location: registar.php"); 
+        }  
         
     }
 ?>
