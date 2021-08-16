@@ -68,12 +68,14 @@
                 function CreatePostBox ($message){
             include 'connect.php';
             $myQuery = $db->prepare('INSERT INTO postbox SET 
-                message=?
+                message=?,
+                read=?
             	
             ');
 
             $add = $myQuery ->execute([
-                 $message
+                 $message,
+                 0   
             ]);
             if(!$add){
                 echo("Adding Error: ".$myQuery->errorInfo())[2];
