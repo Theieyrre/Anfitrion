@@ -49,7 +49,8 @@
 </div>
 <?php
     if(isset($_POST["remove"])){ 
-        // postboxdan sil
+                $postid=GetTableInfo("user",$_SESSION["user_id"])["postbox_id"];
+        Set("postbox",$postid,"message","");// postboxdan sil
         header("Location: register.php");
     }
 ?>
