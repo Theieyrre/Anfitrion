@@ -38,6 +38,8 @@
         <div class="col">
             <h1 class="title">Yorum bekleyen rezervasyonlar</h1>
             <?php
+            $postid=GetTableInfo("user",$_SESSION["user_id"])["postbox_id"];
+            print_r( GetTableInfo("postbox",$postid));
             // Mevuct tarihten eski rezervasyonlar için comment ile join yapıp yorum olmayanları listele
             // Yemeksepeti gibi
             // Eğer burası olmazsa yorum tablosu anlamsız
@@ -66,6 +68,9 @@
                     <?php 
                         // restoranların kategorisi yok ama
                         $Restorants=GetAllRestaurants();
+                        print_r($Restorants);
+                       $rezervations=GetTableInfoWithAnyKey("rezervation","client_id",$_SESSION["client_id"]);
+                        print_r( $rezervations);
                         //GetAllRestaurantInfo();// KULLANARAK TÜM RESTORAN BİLGİLERİNİ FOREACH İLE ALABİLİRSİN
                         //GetRestaurantInfo($RestaurantID);// BUNUNLA İSE İD İLE RESTORAN ÇEKEBİLİRSİN 
                         //GetRestaurantInfo(GetRestaurantID($Name));// BUNUNLA İSE RESTORAN NAME İLE RESTORAN ÇEKEBİLİRSİN 
