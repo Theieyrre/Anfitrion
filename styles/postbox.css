@@ -1,0 +1,20 @@
+body { 
+    background: url(../images/wooden-desk-with-mouse.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+form {
+    background-color: #fabc83b2;
+    padding: 2rem;
+}
+
+form button[type="submit"] {
+    background-color: #941616;
+    color: #ffb773;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+}
