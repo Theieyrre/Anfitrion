@@ -18,8 +18,10 @@
     if(isset($_SESSION["username"])){
         header("Location: /client/");
     }
-    // SELECT all responses
-    // UPDATE all responses read=true
+    $postid=GetTableInfo("user",$_SESSION["user_id"])["postbox_id"];
+   print_r( GetTableInfo("postbox",$postid));//GET ALL RESPONSES
+    GetTableInfo("postbox",$postid)["read"]=1; // UPDATE all responses read=true
+    
 ?>
 <div class="container">
     <div class="row justify-content-md-center">
@@ -30,8 +32,9 @@
                     Yorumlarınıza gelen cevaplar
                 </h1>
                 <?php 
-                    // User tüm commentlar için responselar
-                    // okunmadı olanlar gelsin sayfa yüklenince hepsini okundu olarak update et
+                    $postid=GetTableInfo("user",$_SESSION["user_id"])["postbox_id"];
+                     print_r( GetTableInfo("postbox",$postid));// User tüm commentlar için responselar
+                    GetTableInfo("postbox",$postid)["read"]=1;// okunmadı olanlar gelsin sayfa yüklenince hepsini okundu olarak update et
                 ?>
                 <h2 class="form--header">%restoran adı%</h2>
                 <p class="label">%tarih%</p>
@@ -43,7 +46,8 @@
 </div>
 <?php
     if(isset($_POST["remove"])){ 
-        // postboxdan sil
+        $postid=GetTableInfo("user",$_SESSION["user_id"])["postbox_id"];
+        Set("postbox",$postid,"message","");// postboxdan sil
         header("Location: register.php");
     }
 ?>
