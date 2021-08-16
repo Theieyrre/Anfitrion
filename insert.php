@@ -34,10 +34,11 @@
             $last_id = $db->lastInsertId();
             return $last_id;
         }
-        function CreateUser ($UserMail,
+        function CreateUser ($post_id,$UserMail,
         $UserPhoneNumber,$UserPAssword,$UserFirstName,$UserLastName ){
             include 'connect.php';
             $myQuery = $db->prepare('INSERT INTO user SET 
+                postbox_id = ?,
             	mail = ?,
                 phone_number = ?,
                 password = ?,
@@ -47,6 +48,7 @@
             ');
 
             $add = $myQuery ->execute([
+                   $post_id, 
                 $UserMail,
                 $UserPhoneNumber,
                 $UserPAssword,
@@ -54,6 +56,24 @@
                 $UserLastName,
                 date('Y/m/d ')
                 
+            ]);
+            if(!$add){
+                echo("Adding Error: ".$myQuery->errorInfo())[2];
+                return 0;
+            }  
+            $last_id = $db->lastInsertId();
+           
+            return $last_id;
+         } 
+                function CreatePostBox ($message){
+            include 'connect.php';
+            $myQuery = $db->prepare('INSERT INTO postbox SET 
+                message=?
+            	
+            ');
+
+            $add = $myQuery ->execute([
+                 $message
             ]);
             if(!$add){
                 echo("Adding Error: ".$myQuery->errorInfo())[2];
