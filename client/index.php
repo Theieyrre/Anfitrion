@@ -34,6 +34,24 @@
         </a>
     </div>
     <h1 class="welcome">Hoşgeldiniz, <?php echo ($_SESSION["firstname"]." ".$_SESSION["lastname"]) ?></h1>
+    <div class="row">
+        <div class="col">
+            <h1 class="title">Yorum bekleyen rezervasyonlar</h1>
+            <?php
+            // Mevuct tarihten eski rezervasyonlar için comment ile join yapıp yorum olmayanları listele
+            // Yemeksepeti gibi
+            // Eğer burası olmazsa yorum tablosu anlamsız
+            // TEMPLATE
+            ?>
+            <span>%restoran adı%</span>
+            <span>%tarih%</span>
+            <span>%kişi adedi%</span>
+            <span>%toplam fiyat%</span>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentModal">
+                Yorum Yap
+            </button>
+        </div>
+    </div>
     <?php  
     $reservation=GetTableInfoWithAnyKey("reservation","client_id",$_SESSION["client_id"]);
     if($reservation==0) {
@@ -103,11 +121,41 @@
     </div>    
     <?php } ?>
 </div>
-
+<div class="modal fade" id="commentModal" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Yorum yapınız</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="label">Rezervasyonunuz için yıldız değeri verin</p>
+        <div class="stars">
+            <input type="radio" name="rating" id="rating1">
+            <label for="rating1" class="fas fa-star"></label>
+            <input type="radio" name="rating" id="rating2">
+            <label for="rating2" class="fas fa-star"></label>
+            <input type="radio" name="rating" id="rating3">
+            <label for="rating3" class="fas fa-star"></label>
+            <input type="radio" name="rating" id="rating4">
+            <label for="rating4" class="fas fa-star"></label>
+            <input type="radio" name="rating" id="rating5">
+            <label for="rating5" class="fas fa-star"></label>
+        </div> 
+        <p class="label">Düşüncelerinizi paylaşın</p>
+        <input type="text" name="comment-text" maxlength="100">
+      </div>
+      <div class="modal-footer">
+        <form action="index.php" method="post"> 
+            <button type="submit" class="btn btn-primary">KAYDET</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <?php 
-    //if(!isset($_SESSION["username"])){
-    //    header("Location: login.php");
-    //}
     if (isset($_POST['button'])){
         if($reservation!=0){
             Delete("reservation","client_id",$_SESSION["client_id"]);
