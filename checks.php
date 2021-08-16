@@ -46,7 +46,7 @@
         if($id==0){
             return 0;
         }
-        $is_client=GetTableInfoWithAnyKey("client","user_id",$id)["client_id"];
+        $is_client=GetTableInfoWithAnyKey("client","user_id",$id);
         if(!$is_client){
             echo "client bulunamadı!";
             return 0;
