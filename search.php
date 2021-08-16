@@ -5,7 +5,7 @@
             $knowlegde = $db->query("SELECT * FROM $TableName WHERE $tableID=$id")->fetchAll(PDO::FETCH_ASSOC);
 
         if(!$knowlegde){
-            echo ("Bu id ile kayıtlı $TableName bulunmamaktadir");
+            echo ("kayıtlı $TableName bulunmamaktadir");
             return 0;
         }
         return $knowlegde;
@@ -16,7 +16,7 @@
             $knowlegde = $db->query("SELECT * FROM $TableName")->fetchAll(PDO::FETCH_ASSOC);
 
         if(!$knowlegde){
-            echo ("Bu id ile kayıtlı $TableName bulunmamaktadir");
+            echo (" kayıtlı $TableName bulunmamaktadir");
             return 0;
         }
         return $knowlegde;
@@ -26,7 +26,7 @@
             $knowlegde = $db->query("SELECT * FROM $TableName WHERE $TableName.$identifier=$id")->fetchAll(PDO::FETCH_ASSOC);
 
         if(!$knowlegde){
-            echo ("$id nolu $identifier ile kayıtlı $TableName bulunmamaktadir");
+            echo (" $identifier ile kayıtlı $TableName bulunmamaktadir");
             return 0;
         }
         return $knowlegde;
@@ -44,7 +44,7 @@
             print_r($knowlegde);
             if(!$knowlegde){
             
-                echo "Bu id ile kayıtlı restoran bulunmamaktadir";
+                echo " kayıtlı restoran bulunmamaktadir";
                 return 0;
             }
        
