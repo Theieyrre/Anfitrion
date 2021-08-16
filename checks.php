@@ -25,7 +25,7 @@
         if(!$id){
             return 0;
         }
-        $is_host=GetTableInfoWithAnyKey("host","user_id",$id)["host_id"];
+        $is_host=GetTableInfoWithAnyKey("host","user_id",$id);
         if(!$is_host){
             echo "host bulunamadı!";
             return 0;
