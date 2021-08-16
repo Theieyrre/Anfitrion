@@ -40,7 +40,10 @@
             <?php 
             
             $reservations=GetTableInfoWithAnyKey("reservation","restaurat_id",$_SESSION["restaurat_id"]);
-            
+            if($reservations)
+                print_r($reservations);
+            else
+                echo "rezervasyon bulunmuyor";
             ?>        
                     <ol type="1"><?php
                     foreach ($reservations as $reservation){
