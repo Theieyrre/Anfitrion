@@ -1,6 +1,5 @@
 ![website](https://img.shields.io/badge/website-http%3A%2F%2Fanfitrion.herokuapp.com-brightgreen?style=flat-square&logo=appveyor&link=http://anfitrion.herokuapp.com)
 ![status](https://img.shields.io/badge/status-not%20complete-yellow?style=flat-square)
-![anfitrion-head](../images/Anfitrion-main.jpg)
 # Anfitrion
 Anfitrion, rezervasyon yapmanızı kolaylaştıran bir uygulamadır. Alışılmış telefonla rezervasyon yerine daha yenilikçi ve kullanımı kolay bir uygulamadır.  
 ## Müşteriler için
