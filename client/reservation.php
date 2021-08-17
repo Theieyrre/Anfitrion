@@ -15,9 +15,9 @@
 <?php 
     include '../db.php';
     session_start();
-    //if(!isset($_SESSION["username"])){
-    //    header("Location: /client/login.php");
-    //}
+    if(!isset($_SESSION["username"])){
+        header("Location: /client/login.php");
+    }
     $restoranBilgileri=GetRestaurantInfo(GetRestaurantID($_POST["restaurant"]));//restoran name ile id bulunabilir
     if($restoranBilgileri)
     {

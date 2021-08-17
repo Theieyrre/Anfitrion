@@ -16,12 +16,12 @@
 <?php 
     include '../db.php';
     session_start();
-    //if(!isset($_SESSION["username"])){
-    //    header("Location: login.php");
-    //}
-    //if(!isset($_GET["id"])){
-    //    header("Location: index.php");
-    //}
+    if(!isset($_SESSION["username"])){
+        header("Location: login.php");
+    }
+    if(!isset($_GET["id"])){
+        header("Location: index.php");
+    }
     // Link içinde food idsi olacak 
     // Ordaki id den food değerlerini çekip value değerlerine yaz her input için
     // select kısmı için aşağıdaki gibi selected koyabilirsin eski değer için

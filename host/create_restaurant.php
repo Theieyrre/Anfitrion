@@ -15,9 +15,9 @@
 <?php 
     include '../db.php';
     session_start();
-    //if(!isset($_SESSION["username"])){
-    //    header("Location: login.php");
-    //}
+    if(!isset($_SESSION["username"])){
+        header("Location: login.php");
+    }
 ?>
 <div class="container">
     <div class="row justify-content-md-center">
