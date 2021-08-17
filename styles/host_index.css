@@ -30,3 +30,52 @@ body .container .rezervasyon p.menu{
 body .container .rezervasyon p.menu>span{
     color: rgb(255, 38, 0);
 }
+
+.nav_buttons {
+    margin-left: 85%;
+    width: 20%;
+}
+
+.nav_buttons a {
+    text-decoration: none;
+    color: rgb(128, 72, 0);
+}
+
+.nav_buttons a button {
+    border: none;
+    background: none;
+    color: rgb(128, 72, 0);
+    transition-duration: 1s;
+}
+
+.nav_buttons a button:hover {
+    color: rgb(155, 88, 0);
+}
+
+.nav_buttons a:nth-child(1):hover::after{
+    content: "Yiyecek Ekle";
+    position: absolute;
+    top: 70px;
+    left: 80%;
+}
+
+.nav_buttons a:nth-child(2):hover::after{
+    content: "Menü Ekle";
+    position: absolute;
+    top: 70px;
+    left: 85%;
+}
+
+.nav_buttons a:nth-child(3):hover::after{
+    content: "Posta Kutusu";
+    position: absolute;
+    top: 70px;
+    left: 90%;
+}
+
+.nav_buttons a:nth-child(4):hover::after{
+    content: "Çıkış Yap";
+    position: absolute;
+    top: 70px;
+    left: 95%;
+}

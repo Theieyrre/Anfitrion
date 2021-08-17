@@ -21,6 +21,16 @@
 
     <div class="container">
         <div class="nav_buttons">
+            <a href="add_food.php">
+                <button>
+                <i class="fas fa-plus fa-2x"></i>
+                </button>
+            </a>
+            <a href="create_menu.php">
+                <button>
+                <i class="fas fa-folder-plus fa-2x"></i>
+                </button>
+            </a>
             <a href="postbox.php">
                 <button>
                 <i class="fas fa-envelope fa-2x"></i>
@@ -32,14 +42,14 @@
                 </button>
             </a>
         </div>
-        <h1 class="welcome"><?php GetRestaurantInfo($_SESSION["restaurat_id"])["name"] ?>için rezervasyonlar</h1>
+        <h1 class="welcome"><?php GetRestaurantInfo($_SESSION["restaurant_id"])["name"] ?>için rezervasyonlar</h1>
         <div class="row">
             <div class="col">
 
 
             <?php 
             
-            $reservations=GetTableInfoWithAnyKey("reservation","restaurat_id",$_SESSION["restaurat_id"]);
+            $reservations=GetTableInfoWithAnyKey("reservation","restaurant_id",$_SESSION["restaurant_id"]);
             if($reservations)
                 print_r($reservations);
             else
@@ -53,7 +63,7 @@
             <div class="rezervasyon">
                 <span>%saat%</span>
                 <?php 
-                     $menuler=GetTableInfoWithAnyKey("menu","restaurat_id",$_SESSION["restaurat_id"]);
+                     $menuler=GetTableInfoWithAnyKey("menu","restaurant_id",$_SESSION["restaurant_id"]);
                      ?><ol type="1"><?php
                      foreach($menuler as $menu){
                         print($menu["name"]);
