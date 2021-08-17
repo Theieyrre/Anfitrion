@@ -42,6 +42,8 @@
         $host_id=checkHost($_POST["username"],$_POST["password"]);
         if($host_id){
             $_SESSION["host_id"]=$host_id["host_id"];
+            
+           $_SESSION["restaurant_id"]= GetRestaurantID($host_id["restaurant_name"])
             $_SESSION["username"]=$_POST["username"];
             header("Location: /host/");    
         }
