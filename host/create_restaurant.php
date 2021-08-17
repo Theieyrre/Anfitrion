@@ -58,7 +58,7 @@ $restaurant_name=
         $_SESSION["restaurant_id"]=$restaurant_id;
         Set("host",$_SESSION["host_id"],"restaurant_id",$restaurantid);
         Set("host",$_SESSION["host_id"],"restaurant_name",$_POST["name"]);
-        header("Location: add_food.php");
+        //header("Location: add_food.php");
     }
 ?>
 <footer>
