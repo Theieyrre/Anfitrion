@@ -49,9 +49,7 @@
     </div>
 </div>
 <?php
-$restaurant_name=
- CreateRestourant ($Restourantname,$RestourantDescription,
- $MasaSayisi,$MasaCapacity,$day,$open_time,$close_time);
+
  
     if(isset($_POST["save"])){
         $restaurant_id=CreateRestourant ($_POST["name"],$_POST["desc"],$_POST["masa_sayisi"],$_POST["MasaCapacity"],$_POST["days[]"],$_POST["open_time"],$_POST["close_time"]);
