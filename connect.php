@@ -4,7 +4,7 @@
     $password = getenv("PASSWORD");;
     $dbname = getenv("DATABASE_NAME");
     try {      
-        $db = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);       
+        $db = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);       
     } catch (PDOException $e){     
         echo $e->getMessage();
     }
