@@ -38,7 +38,7 @@
         $UserPhoneNumber,$UserPAssword,$UserFirstName,$UserLastName ){
             include 'connect.php';
             $myQuery = $db->prepare('INSERT INTO user SET 
-                postbox_id = ?,
+               
             	mail = ?,
                 phone_number = ?,
                 password = ?,
@@ -48,7 +48,7 @@
             ');
 
             $add = $myQuery ->execute([
-                   $post_id, 
+                
                 $UserMail,
                 $UserPhoneNumber,
                 $UserPAssword,
