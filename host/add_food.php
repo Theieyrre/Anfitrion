@@ -54,7 +54,7 @@
     if(isset($_POST["save"])){
         $basarili=CreateFood ($_POST["name"],$_POST["desc"],$_POST["cuisine"],$_POST["category"],$_POST["price"], $_POST["is_available"]);
         if(!$basarili){
-            header("Location: ./host/create_menu.php");
+            header("Location: create_menu.php");
         }
         
     }
