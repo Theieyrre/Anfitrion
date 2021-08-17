@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" integrity="sha512-OdEXQYCOldjqUEsuMKsZRj93Ht23QRlhIb8E/X0sbwZhme8eUw6g8q7AdxGJKakcBbv7+/PX0Gc2btf7Ru8cZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="shortcut icon" href="../images/Anfitrion-main.png" type="image/png">
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/form.css">
@@ -41,9 +41,9 @@
                                 <p class="price">%price%</p>
                                 <p>Mevcut mu ?</p>
                                 <?php //eğer is_available ?>
-                                <i class="fas fa-check"></i>
+                                <i class="fas fa-check fa-2x"></i>
                                 <?php //değilse ?>
-                                <i class="fas fa-times"></i>
+                                <i class="fas fa-times fa-2x"></i>
                                 <br>
                                 <?php //basılan food belli olması için name yerine food_id koyabilirsin ?>
                                 <a href="edit_food?id=%food_id%">
