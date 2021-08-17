@@ -11,6 +11,45 @@ body {
     font-family: "Dancing Script";
     font-size: 2.5em;
 }
+
+.calltoaction {
+    background-color: #5c3b2688;
+    padding: 1.5rem;
+    backdrop-filter: blur(3px);
+}
+
+.calltoaction h1 {
+    font-family: "Bad Script";
+    font-size: 2.5em;  
+    color: white;
+}
+
+.calltoaction p {
+    color: rgb(216, 214, 214);
+}
+
+.calltoaction p.list-header {
+    font-size: 2rem;
+    font-family: "Dancing Script";;
+}
+
+.calltoaction .lists {
+    display: flex;
+}
+
+.calltoaction .list ul {
+    list-style-type: upper-roman;
+}
+
+.calltoaction .list li {
+    color: white;
+    font-size: 1.1rem;
+}
+
+.calltoaction .list li:nth-last-child(1) {
+    color: #ffac13;
+}
+
 .buttons {
     margin-top: 3em;
     font-family: "Bad Script";
@@ -23,11 +62,11 @@ button.page-button {
     border-width: 3px;
     background-color: #666464d8;
     color: rgb(192, 192, 192);
-    margin: 0 5em 0 5em;
+    margin: 0 3em 0 3em;
     -webkit-box-shadow: 0px 0px 82px -10px rgb(170, 153, 84);
     -moz-box-shadow: 0px 0px 82px -10px rgb(170, 153, 84);
     box-shadow: 0px 0px 82px -10px rgb(170, 153, 84);
-    padding: 2em;
+    padding: 1em;
 }
 
 button.page-button:hover {
