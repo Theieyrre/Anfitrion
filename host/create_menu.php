@@ -14,9 +14,9 @@
 <?php 
     include '../db.php';
     session_start();
-    //if(!isset($_SESSION["username"])){
-    //    header("Location: login.php");
-    //}
+    if(!isset($_SESSION["username"])){
+        header("Location: login.php");
+    }
 ?>
 <div class="container">
     <div class="row justify-content-md-center">
@@ -29,45 +29,45 @@
                 <p class="label">Başlangıç seçiniz</p>
                 <select name="category1" >
                     <?php  $bilgiler(GetTableInfoWithAnyKey("food","category","ensalada"));
-                         foreach ($bilgiler as $bilgi)
+                         foreach ($bilgiler as $bilgi) {?>
                             <option value="$bilgi[id]">$bilgi[name]</option>
-                         endforeach 
+                         <?php }
                     ?>
                 </select><br>
                 <p class="label">Salata seçiniz</p>
                 <select name="category2" >
                     <?php 
                          $bilgiler(GetTableInfoWithAnyKey("food","category","ensalada"));
-                         foreach ($bilgiler as $bilgi)
+                         foreach ($bilgiler as $bilgi) { ?>
                             <option value="$bilgi[id]">$bilgi[name]</option>
-                         endforeach
+                         <?php }
                      ?>
                 </select><br>
                 <p class="label">Ana yemek seçiniz</p>
                 <select name="category3" >
                     <?php 
                      $bilgiler(GetTableInfoWithAnyKey("food","category","racion"));
-                    foreach ($bilgiler as $bilgi)
+                    foreach ($bilgiler as $bilgi) { ?>
                        <option value="$bilgi[id]">$bilgi[name]</option>
-                    endforeach 
+                    <?php } 
                     ?>
                 </select><br>
                 <p class="label">Ekstra seçiniz</p>
                 <select name="category4" >
                     <?php 
                      $bilgiler(GetTableInfoWithAnyKey("food","category","extra"));
-                    foreach ($bilgiler as $bilgi)
+                    foreach ($bilgiler as $bilgi) { ?>
                        <option value="$bilgi[id]">$bilgi[name]</option>
-                    endforeach 
+                    <?php } 
                     ?>
                 </select><br>
                 <p class="label">Yemek sonrası seçiniz</p>
                 <select name="category5" >
                 <?php 
                      $bilgiler(GetTableInfoWithAnyKey("food","category","postre"));
-                    foreach ($bilgiler as $bilgi)
+                    foreach ($bilgiler as $bilgi) { ?>
                        <option value="$bilgi[id]">$bilgi[name]</option>
-                    endforeach 
+                    <?php } 
                     ?>
                 </select><br>
                 <input type="number" name="price" id="price" placeholder="Menü ücreti" required><br>

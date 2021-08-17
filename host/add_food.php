@@ -15,9 +15,9 @@
 <?php 
     include '../db.php';
     session_start();
-    //if(!isset($_SESSION["username"])){
-    //    header("Location: login.php");
-    //}
+    if(!isset($_SESSION["username"])){
+        header("Location: login.php");
+    }
 ?>
 <div class="container">
     <div class="row justify-content-md-center">
@@ -52,7 +52,7 @@
 </div>
 <?php
     if(isset($_POST["save"])){
-        $basarili=CreateFood ($_POST["name"],$_POST["desc"],$_POST["cuisine"],$_POST["category"],$_POST["price"]);
+        $basarili=CreateFood ($_POST["name"],$_POST["desc"],$_POST["cuisine"],$_POST["category"],$_POST["price"], $_POST["is_available"]);
         if(!$basarili){
             header("Location: ./host/create_menu.php");
         }

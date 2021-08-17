@@ -18,7 +18,7 @@
         header("Location: /client/");
     }
     $postid=GetTableInfo("user",$_SESSION["user_id"])["postbox_id"];
-   print_r( GetTableInfo("postbox",$postid));//GET ALL RESPONSES
+    print_r( GetTableInfo("postbox",$postid));//GET ALL RESPONSES
     GetTableInfo("postbox",$postid)["read"]=1; // UPDATE all responses read=true
     
 ?>
