@@ -43,7 +43,7 @@
         if($host_id){
             $_SESSION["host_id"]=$host_id["host_id"];
             
-            $_SESSION["restaurant_id"]= GetRestaurantID($host_id["restaurant_name"]);
+            $_SESSION["restaurant_id"]= $host_id["restaurant_id"];
             $_SESSION["username"]=$_POST["username"];
             header("Location: /host/");    
         }
