@@ -92,5 +92,5 @@
         CreateContains ($_POST["category4"],$Menu_id);
         CreateContains ($_POST["category5"],$Menu_id);
         //$is_daily isin sorgu yok
-        header("Location: ./host/index.php");
+        header("Location: index.php");
     }
